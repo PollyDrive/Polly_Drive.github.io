@@ -56,7 +56,7 @@ function addMedia(slide, image, text, smallText){
 	image.classList.remove('hidden');
 	image.classList.add('visible');
 	// if(image.naturalWidth > image.naturalHeight){
-		slide.style.width = "200%";
+		slide.style.width = "175%";
 		image.style.width = image.naturalWidth + 'px';	
 	// } else{
 	// 	slide.style.height = image.naturalHeight + 'px';
@@ -77,7 +77,7 @@ function addText(smallText){
 	smallText.classList.add('bounce');
 };
 function removeMedia(slide, image, text, smallText){
-	slide.style.width = '100%';
+	slide.style.width = '175%';
 	image.classList.remove('visible');
 	image.classList.add('hidden');
 	text.classList.remove('visible');
@@ -103,11 +103,26 @@ function openSlide(slide, image, text, smallText){
 	}
 }
 
+// при нажатии на бургер
+// элементам добавляется класс анимации
+// меню раскрывается на весь экран
 
+var burger = document.querySelector('.burger');
+var sideMenu = document.querySelector('.side-menu');
+var navMenu = document.querySelector('.menu');
+var burgerLine = document.querySelector('.burger-line');
+var burgerLineTop = document.querySelector('.burger-lineTop');
+var burgerLineBottom = document.querySelector('.burger-lineBottom');
+var sideMenuWidth = document.documentElement.clientWidth - 40;
 
-
-//узнать реальный размер картинки и подогнать размер слайда под него
-// если ширина картинки больше высоты 
-// 	то высота картинки и слайда = 100%
-// если высота картинки больше ширины
-// 	то ширина картинки и слайда = 100%
+burger.addEventListener('click', function(e){
+	e.preventDefault;
+	sideMenu.style.width = sideMenuWidth +'px';
+	sideMenu.style.height = document.documentElement.clientHeight +'px';
+	sideMenu.classList.add('side-menu_opened');
+	burgerLine.classList.add('blA');;
+	burgerLineTop.classList.add('bltA');
+	burgerLineBottom.classList.add('blbA');
+	navMenu.classList.remove('hidden');
+	navMenu.classList.add('visible');
+});
