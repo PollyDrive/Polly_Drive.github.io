@@ -3,22 +3,31 @@ var slide2 = document.querySelector('#slide2');
 var slide3 = document.querySelector('#slide3');
 var slide4 = document.querySelector('#slide4');
 var menu = document.querySelector('.menu-container');
+var background = document.querySelector('.background');
 var content = document.querySelector('.content');
 var activeImage = null;
 var activeSide = null;
 var activeText = null;
 slides = [slide1, slide2, slide3, slide4];
 setHeightToScreen();
+setWidthToScreen();
 
 window.addEventListener('resize', function(e){
 	setHeightToScreen();
+	setWidthToScreen();
+
 });
-	
 	
 function setHeightToScreen(){
 	var windowHeight = document.documentElement.clientHeight - 3;
 	menu.style.height = windowHeight +'px';
+	background.style.height = windowHeight +'px';
 }
+function setWidthToScreen(){
+	var windowWidth = document.documentElement.clientWidth;
+	background.style.width = windowWidth +'px';
+}
+console.log(document.documentElement.clientWidth);
 
 slides.forEach(function(slide){
 	slide.addEventListener('mouseenter', function(e){
@@ -47,7 +56,7 @@ function addMedia(slide, image, text, smallText){
 	image.classList.remove('hidden');
 	image.classList.add('visible');
 	// if(image.naturalWidth > image.naturalHeight){
-		slide.style.width = "225%";
+		slide.style.width = "200%";
 		image.style.width = image.naturalWidth + 'px';	
 	// } else{
 	// 	slide.style.height = image.naturalHeight + 'px';
@@ -59,7 +68,7 @@ function addMedia(slide, image, text, smallText){
 	activeImage = image;
 	activeSide = slide;
 	activeText = text;
-	console.log(document.documentElement.clientHeight);
+	// console.log(document.documentElement.clientHeight);
 	// console.log(image.naturalWidth);
 }
 function addText(smallText){

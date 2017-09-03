@@ -1,6 +1,6 @@
 body {
-  background-color: #111;
-  margin: 0; }
+  margin: 0;
+  min-width: 1100px; }
 
 @font-face {
   font-family: Corbert-Regular;
@@ -11,20 +11,22 @@ body {
   src: url(../fonts/Museo_Slab.otf); }
 
 .content {
-  width: 73%;
+  width: 78%;
   height: 100%;
   position: relative; }
 
-.triangle {
+.background {
   position: absolute;
-  width: 125%;
-  height: 100%; }
+  width: 100%;
+  height: 100%;
+  background-color: #111; }
 
 .emptyspaceTextTop, .emptyspaceTextBottom {
   width: 200px;
-  font-family: Corbert-Regular;
+  font-family: monospace;
   color: #fff;
-  font-size: 33px;
+  font-size: 23px;
+  line-height: 2;
   text-align: center;
   animation: opacity 5s ease;
   animation-fill-mode: backwards; }
@@ -32,17 +34,19 @@ body {
 .emptyspaceTextTop {
   position: absolute;
   top: 3em;
-  left: 1em; }
+  left: 1em;
+  font-size: 18px; }
 
 .emptyspaceTextBottom {
   position: absolute;
-  bottom: 3em;
-  right: -1em; }
+  bottom: 5em;
+  right: 0.4em; }
 
 .menu-container {
+  position: absolute;
   display: flex;
   justify-content: center;
-  margin-left: 10em;
+  margin-left: 12em;
   border: 1px solid;
   transform: skewX(-25deg);
   overflow: hidden;
@@ -153,3 +157,9 @@ body {
 @keyframes rotate {
   100% {
     transform: rotateY(360deg); } }
+
+.navpanel {
+  height: 50px;
+  background-color: #111; }
+  .navpanel ul {
+    list-style: none; }
