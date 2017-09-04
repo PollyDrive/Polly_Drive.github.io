@@ -27,7 +27,6 @@ function setWidthToScreen(){
 	var windowWidth = document.documentElement.clientWidth;
 	background.style.width = windowWidth +'px';
 }
-console.log(document.documentElement.clientWidth);
 
 slides.forEach(function(slide){
 	slide.addEventListener('mouseenter', function(e){
@@ -57,7 +56,9 @@ function addMedia(slide, image, text, smallText){
 	image.classList.add('visible');
 	// if(image.naturalWidth > image.naturalHeight){
 		slide.style.width = "175%";
+		slide.style.maxWidth = "800px";
 		image.style.width = image.naturalWidth + 'px';	
+
 	// } else{
 	// 	slide.style.height = image.naturalHeight + 'px';
 	// }
@@ -108,21 +109,75 @@ function openSlide(slide, image, text, smallText){
 // меню раскрывается на весь экран
 
 var burger = document.querySelector('.burger');
+var arrow = document.querySelector('.arrow');
 var sideMenu = document.querySelector('.side-menu');
+var sideMenuClosed = document.querySelector('.side-menu_closed');
+var sideMenuClosedWidth = sideMenuClosed.offsetWidth;
+var sideMenuClosedHeight = sideMenuClosed.offsetHeight;
 var navMenu = document.querySelector('.menu');
 var burgerLine = document.querySelector('.burger-line');
 var burgerLineTop = document.querySelector('.burger-lineTop');
 var burgerLineBottom = document.querySelector('.burger-lineBottom');
-var sideMenuWidth = document.documentElement.clientWidth - 40;
+var sideMenuOpenedWidth = menu.offsetWidth/2 + sideMenu.offsetWidth;
 
-burger.addEventListener('click', function(e){
+// burger.addEventListener('click', function(e){
+
+// 	// burger.classList.add('arrow');
+// 	// if(burger.classList.contains('arrow')){
+// 		burger.addEventListener('click', function(e){
+			
+		
+// 		});
+// 	// }
+	
+// });
+
+burger.addEventListener('click', openSideMenu)
+
+function openSideMenu(e){
 	e.preventDefault;
-	sideMenu.style.width = sideMenuWidth +'px';
-	sideMenu.style.height = document.documentElement.clientHeight +'px';
+	sideMenu.classList.remove('side-menu_closed');
 	sideMenu.classList.add('side-menu_opened');
-	burgerLine.classList.add('blA');;
+	sideMenu.style.width = sideMenuOpenedWidth +'px';
+	sideMenu.style.height = document.documentElement.clientHeight +'px';
+
+	burgerLine.classList.add('blA');
 	burgerLineTop.classList.add('bltA');
 	burgerLineBottom.classList.add('blbA');
+
 	navMenu.classList.remove('hidden');
 	navMenu.classList.add('visible');
-});
+	// burger.classList.add('arrow');
+	burger.removeEventListener('click', openSideMenu)
+		// burgerLine.classList.remove('blA');
+		// burgerLineTop.classList.remove('bltA');
+		// burgerLineBottom.classList.remove('blbA');
+	burger.addEventListener('click', closeSideMenu)
+}
+
+function closeSideMenu(e){
+	e.preventDefault;
+	// burger.classList.remove('arrow');
+	sideMenu.classList.remove('side-menu_opened');
+	sideMenu.classList.add('side-menu_closed');
+
+	sideMenu.style.width = sideMenuClosedWidth + 'px';
+	sideMenu.style.height = sideMenuClosedHeight + 'px';
+
+	burgerLine.classList.remove('blA');
+	burgerLineTop.classList.remove('bltA');
+	burgerLineBottom.classList.remove('blbA');
+	burgerLine.classList.add('blAR');
+	burgerLineTop.classList.add('bltAR');
+	burgerLineBottom.classList.add('blbAR');
+	// debugger
+	burger.removeEventListener('click', closeSideMenu)
+		// burgerLine.classList.remove('blAR');
+		// burgerLineTop.classList.remove('bltAR');
+		// burgerLineBottom.classList.remove( 'blbAR');
+
+	burger.addEventListener('click', openSideMenu)
+
+}
+
+

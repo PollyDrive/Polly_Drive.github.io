@@ -11,7 +11,6 @@ body {
   src: url(../fonts/Museo_Slab.otf); }
 
 .content {
-  width: 80%;
   height: 100%;
   position: relative; }
 
@@ -41,7 +40,7 @@ body {
   border: 1px solid;
   transform: skewX(-25deg);
   overflow: hidden;
-  width: 100%;
+  width: 82%;
   height: 0;
   z-index: 5; }
 
@@ -149,7 +148,7 @@ body {
   100% {
     transform: rotateY(360deg); } }
 
-.side-menu {
+.side-menu_closed, .side-menu {
   position: fixed;
   top: 0;
   left: -110px;
@@ -158,19 +157,23 @@ body {
   height: 385px;
   transform: skew(-25deg);
   z-index: 100;
-  transition: all 1s ease; }
+  transition: all 0.5s ease; }
 
 .side-menu_opened {
+  position: fixed;
+  top: 0;
   width: 0;
   height: 0;
   left: -180px;
-  background-color: #f7f7f7; }
+  background-color: #f7f7f7;
+  z-index: 100;
+  transition: width 0.6s ease; }
   .side-menu_opened img {
     transform: skew(0deg); }
 
 .menu {
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 15%;
   width: 200px;
   font-family: monospace;
@@ -185,53 +188,65 @@ body {
   animation: none; }
 
 .burger {
-  list-style: none;
   position: absolute;
-  top: 1em;
-  transform: skew(25deg); }
+  width: 30px;
+  transform: skew(25deg) translateX(250%) translateY(130%); }
 
 .burger-line, .burger-lineTop, .burger-lineBottom {
   width: 30px;
   height: 3px;
-  left: 5.5em;
   background-color: #fff;
-  transform: skew(25deg);
-  position: absolute;
-  animation-fill-mode: forwards; }
-
-.burger-line {
-  top: 2.5em; }
+  margin: 0.5em 0; }
 
 .blA {
   animation: burgerLine 0.8s ease;
-  background-color: #000; }
-
-.burger-lineTop {
-  top: 2em; }
+  animation-fill-mode: forwards;
+  animation-direction: normal; }
 
 .bltA {
   animation: burgerLine1 0.8s ease;
-  animation-fill-mode: forwards; }
-
-.burger-lineBottom {
-  top: 3em; }
+  animation-fill-mode: forwards;
+  animation-direction: normal; }
 
 .blbA {
   animation: burgerLine2 0.8s ease;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  animation-direction: normal; }
 
 @keyframes burgerLine {
+  0% {
+    transform: rotate(0deg) translateY(0em) translateX(0em);
+    background-color: #fff; }
   100% {
+    transform: rotate(0deg) translateY(0em) translateX(0em);
     background-color: #000; } }
 
 @keyframes burgerLine1 {
+  0% {
+    transform: rotate(0deg) translateY(0em) translateX(0em);
+    background-color: #fff; }
   100% {
-    transform: rotate(220deg) translateY(-0.7em) translateX(-0.35em);
+    transform: rotate(220deg) translateY(0.11em) translateX(0.5em);
     width: 15px;
     background-color: #000; } }
 
 @keyframes burgerLine2 {
+  0% {
+    transform: rotate(0deg) translateY(0em) translateX(0em);
+    background-color: #fff; }
   100% {
-    transform: rotate(320deg) translateY(-0.7em) translateX(0.4em);
+    transform: rotate(320deg) translateY(-1.45em) translateX(0.8em);
     width: 15px;
     background-color: #000; } }
+
+.blAR {
+  animation: burgerLine 1.8s ease;
+  animation-direction: reverse; }
+
+.bltAR {
+  animation: burgerLine1 1.8s ease;
+  animation-direction: reverse; }
+
+.blbAR {
+  animation: burgerLine2 1.8s ease;
+  animation-direction: reverse; }
