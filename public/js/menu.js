@@ -8,7 +8,8 @@ var content = document.querySelector('.content');
 var activeImage = null;
 var activeSide = null;
 var activeText = null;
-slides = [slide1, slide2, slide3, slide4];
+var activeSmallText = null;
+var slides = [slide1, slide2, slide3, slide4];
 setHeightToScreen();
 setWidthToScreen();
 
@@ -16,14 +17,6 @@ window.addEventListener('resize', function(e){
 	setHeightToScreen();
 	setWidthToScreen();
 });
-
-// function openFirstSlide(slide){
-// 	var image = slide.querySelector('img');
-// 	var text = slide.querySelector('.text');
-// 	var smallText = slide.querySelector('.text__sm');
-// 	openSlide(slide, image, text, smallText);
-// }
-
 
 function setHeightToScreen(){
 	var windowHeight = document.documentElement.clientHeight - 3;
@@ -36,36 +29,27 @@ function setWidthToScreen(){
 }
 
 slides.forEach(function(slide){
+	var image = slide.querySelector('img');
+	var text = slide.querySelector('.text');
+	var smallText = slide.querySelector('.text__sm');
 	slide.addEventListener('mouseenter', function(e){
 		e.preventDefault();
-		e.stopPropagation()
-		var image = slide.querySelector('img');
-		var text = slide.querySelector('.text');
-		var smallText = slide.querySelector('.text__sm');
-		if(activeSide && activeImage){
-			removeMedia(slide,image, text, smallText, activeSide);
-		}
-			openSlide(slide, image, text, smallText);
-
+		e.stopPropagation();
+		openSlide(slide, image, text, smallText);
 	});
 	slide.addEventListener('mouseleave', function(e){
 		e.preventDefault();
-		e.stopPropagation()
-		var image = slide.querySelector('img');
-		var text = slide.querySelector('.text');
-		var smallText = slide.querySelector('.text__sm');
-		removeMedia(slide, image, text, smallText, activeSide);
+		e.stopPropagation();
+		removeMedia();
 	});
-	setTimeout(function(){
-		var opened = new Event('mouseenter');
-		var closed = new Event('mouseleave');
-		slide2.dispatchEvent(opened);
-		// slide1.dispatchEvent(closed);
-	},300);
-	
 });
+
+setTimeout(function(){
+	var opened = new Event('mouseenter');
+	slide2.dispatchEvent(opened);
+}, 300);
+
 function addMedia(slide, image, text, smallText){
-	// slide.style.width = '100%';
 	image.classList.remove('hidden');
 	image.classList.add('visible');
 	slide.style.width = menu.offsetWidth * 1.1 + 'px';
@@ -73,41 +57,40 @@ function addMedia(slide, image, text, smallText){
 
 	text.classList.remove('hidden');
 	text.classList.add('visible');
-		setTimeout(addText(smallText), 900)
+	setTimeout(addText(smallText), 900)
 	activeImage = image;
 	activeSide = slide;
 	activeText = text;
-	// console.log(document.documentElement.clientHeight);
-	// console.log(image.naturalWidth);
+	activeSmallText = smallText;
 }
+
 function addText(smallText){
 	smallText.classList.remove('hidden');
 	smallText.classList.add('visible');
 	smallText.classList.add('bounce');
-};
-function removeMedia(slide, image, text, smallText){
-	image.classList.remove('visible');
-	image.classList.add('hidden');
-	text.classList.remove('visible');
-	text.classList.add('hidden');
-	smallText.classList.remove('visible');
-	smallText.classList.add('hidden');
-	smallText.classList.remove('bounce');
+}
+
+function removeMedia(){
+	activeImage.classList.remove('visible');
+	activeImage.classList.add('hidden');
+	activeText.classList.remove('visible');
+	activeText.classList.add('hidden');
+	activeSmallText.classList.remove('visible');
+	activeSmallText.classList.add('hidden');
+	activeSmallText.classList.remove('bounce');
 	activeSide.style.width = '25%';
 	activeSide = null;
 	activeImage = null;
 	activeText = null;
+	activeSmallText = null;
 }
 function openSlide(slide, image, text, smallText){
-	if (activeImage && activeSide) {
-		removeMedia(slide, image, text, smallText, activeSide);
+	var theSame = activeSide === slide
+	if (!theSame && activeSide) {
+		removeMedia();
 	}
-	if (activeSide !== slide){
+	if (!theSame) {
 		addMedia(slide, image, text, smallText);
-	} else {
-		activeSide = null;
-		activeImage = null;
-		activeText = null;
 	}
 }
 
