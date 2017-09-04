@@ -147,17 +147,12 @@ function openSideMenu(e){
 
 	navMenu.classList.remove('hidden');
 	navMenu.classList.add('visible');
-	// burger.classList.add('arrow');
 	burger.removeEventListener('click', openSideMenu)
-		// burgerLine.classList.remove('blA');
-		// burgerLineTop.classList.remove('bltA');
-		// burgerLineBottom.classList.remove('blbA');
 	burger.addEventListener('click', closeSideMenu)
 }
 
 function closeSideMenu(e){
 	e.preventDefault;
-	// burger.classList.remove('arrow');
 	sideMenu.classList.remove('side-menu_opened');
 	sideMenu.classList.add('side-menu_closed');
 
@@ -167,15 +162,7 @@ function closeSideMenu(e){
 	burgerLine.classList.remove('blA');
 	burgerLineTop.classList.remove('bltA');
 	burgerLineBottom.classList.remove('blbA');
-	burgerLine.classList.add('blAR');
-	burgerLineTop.classList.add('bltAR');
-	burgerLineBottom.classList.add('blbAR');
-	// debugger
 	burger.removeEventListener('click', closeSideMenu)
-		// burgerLine.classList.remove('blAR');
-		// burgerLineTop.classList.remove('bltAR');
-		// burgerLineBottom.classList.remove( 'blbAR');
-
 	burger.addEventListener('click', openSideMenu)
 
 }
