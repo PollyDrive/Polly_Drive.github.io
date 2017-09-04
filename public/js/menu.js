@@ -15,9 +15,16 @@ setWidthToScreen();
 window.addEventListener('resize', function(e){
 	setHeightToScreen();
 	setWidthToScreen();
-
 });
-	
+
+// function openFirstSlide(slide){
+// 	var image = slide.querySelector('img');
+// 	var text = slide.querySelector('.text');
+// 	var smallText = slide.querySelector('.text__sm');
+// 	openSlide(slide, image, text, smallText);
+// }
+
+
 function setHeightToScreen(){
 	var windowHeight = document.documentElement.clientHeight - 3;
 	menu.style.height = windowHeight +'px';
@@ -35,10 +42,11 @@ slides.forEach(function(slide){
 		var image = slide.querySelector('img');
 		var text = slide.querySelector('.text');
 		var smallText = slide.querySelector('.text__sm');
-		if(activeSide){
+		if(activeSide && activeImage){
 			removeMedia(slide,image, text, smallText, activeSide);
 		}
-		openSlide(slide, image, text, smallText);
+			openSlide(slide, image, text, smallText);
+
 	});
 	slide.addEventListener('mouseleave', function(e){
 		e.preventDefault();
@@ -46,26 +54,26 @@ slides.forEach(function(slide){
 		var image = slide.querySelector('img');
 		var text = slide.querySelector('.text');
 		var smallText = slide.querySelector('.text__sm');
-		removeMedia(slide,image, text, smallText, activeSide);
+		removeMedia(slide, image, text, smallText, activeSide);
 	});
+	setTimeout(function(){
+		var opened = new Event('mouseenter');
+		var closed = new Event('mouseleave');
+		slide2.dispatchEvent(opened);
+		// slide1.dispatchEvent(closed);
+	},300);
+	
 });
-
 function addMedia(slide, image, text, smallText){
 	// slide.style.width = '100%';
 	image.classList.remove('hidden');
 	image.classList.add('visible');
-	// if(image.naturalWidth > image.naturalHeight){
-		slide.style.width = "175%";
-		slide.style.maxWidth = "800px";
-		image.style.width = image.naturalWidth + 'px';	
+	slide.style.width = menu.offsetWidth * 1.1 + 'px';
+	image.style.width = image.naturalWidth + 'px';
 
-	// } else{
-	// 	slide.style.height = image.naturalHeight + 'px';
-	// }
-	// image.style.width = image.naturalWidth+ 'px';
 	text.classList.remove('hidden');
 	text.classList.add('visible');
-	setTimeout(addText(smallText), 900);
+		setTimeout(addText(smallText), 900)
 	activeImage = image;
 	activeSide = slide;
 	activeText = text;
@@ -78,7 +86,6 @@ function addText(smallText){
 	smallText.classList.add('bounce');
 };
 function removeMedia(slide, image, text, smallText){
-	slide.style.width = '175%';
 	image.classList.remove('visible');
 	image.classList.add('hidden');
 	text.classList.remove('visible');
@@ -120,18 +127,6 @@ var burgerLineTop = document.querySelector('.burger-lineTop');
 var burgerLineBottom = document.querySelector('.burger-lineBottom');
 var sideMenuOpenedWidth = menu.offsetWidth/2 + sideMenu.offsetWidth;
 
-// burger.addEventListener('click', function(e){
-
-// 	// burger.classList.add('arrow');
-// 	// if(burger.classList.contains('arrow')){
-// 		burger.addEventListener('click', function(e){
-			
-		
-// 		});
-// 	// }
-	
-// });
-
 burger.addEventListener('click', openSideMenu)
 
 function openSideMenu(e){
@@ -155,16 +150,13 @@ function closeSideMenu(e){
 	e.preventDefault;
 	sideMenu.classList.remove('side-menu_opened');
 	sideMenu.classList.add('side-menu_closed');
-
 	sideMenu.style.width = sideMenuClosedWidth + 'px';
 	sideMenu.style.height = sideMenuClosedHeight + 'px';
-
 	burgerLine.classList.remove('blA');
 	burgerLineTop.classList.remove('bltA');
 	burgerLineBottom.classList.remove('blbA');
 	burger.removeEventListener('click', closeSideMenu)
 	burger.addEventListener('click', openSideMenu)
-
 }
 
 
