@@ -104,7 +104,7 @@ var sideMenu = document.querySelector('.side-menu');
 var sideMenuClosed = document.querySelector('.side-menu_closed');
 var sideMenuClosedWidth = sideMenuClosed.offsetWidth;
 var sideMenuClosedHeight = sideMenuClosed.offsetHeight;
-var navMenu = document.querySelector('.menu');
+var navMenu = document.querySelector('.menu-list');
 var burgerLine = document.querySelector('.burger-line');
 var burgerLineTop = document.querySelector('.burger-lineTop');
 var burgerLineBottom = document.querySelector('.burger-lineBottom');
@@ -113,16 +113,18 @@ var sideMenuOpenedWidth = menu.offsetWidth/2 + sideMenu.offsetWidth;
 burger.addEventListener('click', openSideMenu)
 
 function openSideMenu(e){
+	var closed = new Event('mouseleave');
 	e.preventDefault;
 	sideMenu.classList.remove('side-menu_closed');
 	sideMenu.classList.add('side-menu_opened');
+	background.classList.add('side-menu__background');
+	background.style.width = document.documentElement.clientWidth +'px';
 	sideMenu.style.width = sideMenuOpenedWidth +'px';
 	sideMenu.style.height = document.documentElement.clientHeight +'px';
-
+	slide2.dispatchEvent(closed);
 	burgerLine.classList.add('blA');
 	burgerLineTop.classList.add('bltA');
 	burgerLineBottom.classList.add('blbA');
-
 	navMenu.classList.remove('hidden');
 	navMenu.classList.add('visible');
 	burger.removeEventListener('click', openSideMenu)
@@ -135,6 +137,9 @@ function closeSideMenu(e){
 	sideMenu.classList.add('side-menu_closed');
 	sideMenu.style.width = sideMenuClosedWidth + 'px';
 	sideMenu.style.height = sideMenuClosedHeight + 'px';
+	background.classList.remove('side-menu__background');
+	navMenu.classList.add('hidden');
+	navMenu.classList.remove('visible');
 	burgerLine.classList.remove('blA');
 	burgerLineTop.classList.remove('bltA');
 	burgerLineBottom.classList.remove('blbA');
@@ -142,4 +147,18 @@ function closeSideMenu(e){
 	burger.addEventListener('click', openSideMenu)
 }
 
+/*при нажатии на имя статьи 
+активный слайд развигается на всю ширину
+неактивные слайды дизейблятся
+текст поднимается наверх
+слайд меняет высоту до середины экрана?
+rotatex90deg
 
+добавляется*/
+
+
+// var slideName = document.querySelector('.slide-name');
+// slideName.addEventListener('click', function(e){
+// 	e.preventDefault();
+// 	menu.style.transform = 'skewX(-25deg) rotatey(90deg)';
+// })
