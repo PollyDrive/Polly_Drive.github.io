@@ -14,7 +14,7 @@ body{
 .content{
     height: 100%;
     position: relative;
-    // padding-top: 5em;
+
 }
 
 .background{
@@ -22,6 +22,7 @@ body{
 	width: 100%;
 	height: 100%;
 	background-color: #2d2c2c;
+	overflow: hidden;
 }
 
 .emptyspaceTextBottom{
@@ -36,44 +37,42 @@ body{
 	bottom: 1em;
 	right: 2em;
 	font-size: 18px;
-
 }
 .menu-container{
 	position:absolute;
 	display: flex;
     justify-content: center;
     // margin-left: 12em;
-    border: 1px solid;
     transform: skewX(-25deg);
     overflow: hidden;
     width: 82%;
     height: 0;
-    z-index: 5;
-    // transition: all 1.8s ease-in-out;
+    z-index: 5; 
 }
-[class *= 'side']{
+.slide{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 25%;
 	// height: 500px;
-	opacity: 1;
+	opacity: 0.6;
 	overflow: hidden;
 	transition: all 0.8s ease;
 	cursor: pointer;
 	z-index:10;
-}
-.side{
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	img{
     	animation: opacity 3s linear;
 	}
+}
+.slide:hover{
+	opacity: 1;
 }
 @keyframes opacity{
 	0%{
 		opacity:0;
 	}
 	100%{
-		opacity:1;
+		opacity:0.6;
 	}
 }
 .hidden{
@@ -113,14 +112,13 @@ body{
 	color: #aaa;
 }
 .slide-name:active, .slide-name:focus{
-	font-size: 62px;
-	transition: all 0.3s linear;
 }
 .text{
 	font-family: Corbert-Regular;
     font-size: 60px;
     z-index: 99;
     position: absolute;
+    transition: none;
 
 }
 .text__sm{
@@ -133,6 +131,7 @@ body{
 	top: 95%;
 	transform: skewX(0deg);
 	transform:translateX(70px);
+	transition: none;
 }
 
 .bounce{
@@ -253,14 +252,30 @@ body{
 
 
 // ------------------------------------------
-// .article{
-// 	width: 839px;
-//     z-index: 120;
-//     position: absolute;
-//     top: 286px;
-//     left: 20%;
-//     height: 778px;
-//     background-color: #b3b3b3;
-// }
+.article{
+	visibility: hidden;
+	width: 839px;
+    z-index: 120;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    height: 778px;
+    background-color: #f7f7f7;
+    transition: all 2s ease;
+    animation: none;
+}
 
+@keyframes bottomToTop{
+	0%{
+		top: 100%;
+		opacity: 0;
+	}
+	60%{
+		opacity: 0;
+	}
+		100%{
+		top: 20%;
+		opacity: 1;
+	}
 
+}

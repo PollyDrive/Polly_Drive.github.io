@@ -12,6 +12,7 @@ var activeSmallText = null;
 var slides = [slide1, slide2, slide3, slide4];
 setHeightToScreen();
 setWidthToScreen();
+var article = document.querySelector('.article')
 
 window.addEventListener('resize', function(e){
 	setHeightToScreen();
@@ -32,6 +33,7 @@ slides.forEach(function(slide){
 	var image = slide.querySelector('img');
 	var text = slide.querySelector('.text');
 	var smallText = slide.querySelector('.text__sm');
+	var slideName = slide.querySelector('.slide-name');
 	slide.addEventListener('mouseenter', function(e){
 		e.preventDefault();
 		e.stopPropagation();
@@ -42,6 +44,12 @@ slides.forEach(function(slide){
 		e.stopPropagation();
 		removeMedia();
 	});
+	slideName.addEventListener('click', function(e){
+		e.preventDefault();
+		removeMedia();
+		hideSlidesAndAddArticle();
+		console.log(menu);
+	})
 });
 
 setTimeout(function(){
@@ -49,12 +57,31 @@ setTimeout(function(){
 	slide2.dispatchEvent(opened);
 }, 300);
 
+function hideSlidesAndAddArticle(){
+	// activeImage.classList.remove('visible');
+	// activeImage.classList.add('hidden');
+	// activeText.classList.remove('visible');
+	// activeText.classList.add('hidden');
+	// activeSmallText.classList.remove('visible');
+	// activeSmallText.classList.add('hidden');
+	// activeSmallText.classList.remove('bounce');
+	menu.style.width = '8%';
+	menu.style.transition= 'all 0.8s ease-in-out';
+	article.style.visibility = 'visible';
+	article.style.animation = 'bottomToTop 1.5s linear';
+	background.classList.add('side-menu__background');
+	quoteText.classList.add('hidden');
+	// // activeImage.style.width = '125%';
+	// activeText.style.top = '10%';
+	// activeSide.classList.add('active');
+	// activeText.classList.add('hidden');
+}
+
 function addMedia(slide, image, text, smallText){
 	image.classList.remove('hidden');
 	image.classList.add('visible');
 	slide.style.width = menu.offsetWidth * 1.1 + 'px';
 	image.style.width = image.naturalWidth + 'px';
-
 	text.classList.remove('hidden');
 	text.classList.add('visible');
 	setTimeout(addText(smallText), 900)
@@ -63,7 +90,6 @@ function addMedia(slide, image, text, smallText){
 	activeText = text;
 	activeSmallText = smallText;
 }
-
 function addText(smallText){
 	smallText.classList.remove('hidden');
 	smallText.classList.add('visible');
@@ -109,6 +135,7 @@ var burgerLine = document.querySelector('.burger-line');
 var burgerLineTop = document.querySelector('.burger-lineTop');
 var burgerLineBottom = document.querySelector('.burger-lineBottom');
 var sideMenuOpenedWidth = menu.offsetWidth/2 + sideMenu.offsetWidth;
+var quoteText = document.querySelector('.emptyspaceTextBottom');
 
 burger.addEventListener('click', openSideMenu)
 
@@ -127,8 +154,10 @@ function openSideMenu(e){
 	burgerLineBottom.classList.add('blbA');
 	navMenu.classList.remove('hidden');
 	navMenu.classList.add('visible');
+	article.style.visibility = 'hidden';
 	burger.removeEventListener('click', openSideMenu)
 	burger.addEventListener('click', closeSideMenu)
+
 }
 
 function closeSideMenu(e){
@@ -157,8 +186,3 @@ rotatex90deg
 добавляется*/
 
 
-// var slideName = document.querySelector('.slide-name');
-// slideName.addEventListener('click', function(e){
-// 	e.preventDefault();
-// 	menu.style.transform = 'skewX(-25deg) rotatey(90deg)';
-// })
