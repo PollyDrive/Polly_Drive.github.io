@@ -84,6 +84,7 @@ body{
 	justify-content: flex-start;
 	flex-flow: row wrap;
 	height: 250px;
+	padding-left: 100px;
 	border-top: 11px dotted #333;
 }
 .content-left2{
@@ -93,7 +94,8 @@ body{
 	flex-flow: row wrap;
 	height: 250px;
 	border-top: 11px dotted #333;
-	margin: 50px 0 150px;
+	margin: 50px 0;
+	padding-left: 100px;
 }
 .content-right{
 	visibility: hidden;
@@ -103,6 +105,7 @@ body{
 	height: 250px;
 	border-top: 5px dotted #333;
 	margin: 50px 0;
+	padding-right: 100px;
 }
 .content-center{
 	visibility: hidden;
