@@ -28,7 +28,7 @@ $(document).ready( function(){
     	wheel.css({'animation': 'none'});
     	$('.disease-card').css({'animation': 'opacity 1.5s linear', 'visibility':'visible', 'transform': 'translatey(125%) translatex(15%)'});
     	setTimeout(function(e){
-    		$('.more').css({'animation': 'opacity 1s linear','display':'block', 'transform': 'translateY(-35%) translateX(217%)'})
+    		$('.more').css({'animation': 'opacity 1s linear','display':'block', 'transform': 'translateY(21%) translateX(26%)'})
     	}, 4000);
     });
 
@@ -46,7 +46,7 @@ function appearsAndTurns(){
 			header.classList.remove('header_up');
 			header.classList.add('header');
 		}
-		if(scrolled > header.getBoundingClientRect().bottom + 100){
+		if(scrolled > header.getBoundingClientRect().bottom + 80){
 			cLeft.style.visibility = 'visible';
 			form1.style.display = 'block';
 			cRight.style.visibility = 'visible';
@@ -58,12 +58,12 @@ function appearsAndTurns(){
 			form2.style.transition = 'all 0.5s ease';
 			cLeftS.style.visibility = 'visible';
 		}
-		if(scrolled > cLeftS.getBoundingClientRect().bottom +50){
+		if(scrolled > cLeftS.getBoundingClientRect().bottom +150){
 			form3.style.display = 'block';
 			form3.style.animation = 'left 2.5s ease';
 			cCenter.style.visibility = 'visible';
 		}
-		if(scrolled > cCenter.getBoundingClientRect().bottom){
+		if(scrolled > cCenter.getBoundingClientRect().bottom+200){
 			form4.style.display = 'block';
 			form4.style.animation = 'fromBottom 3.5s ease';
 		}
