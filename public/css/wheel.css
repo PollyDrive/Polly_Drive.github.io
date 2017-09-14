@@ -48,7 +48,7 @@ body {
   display: flex;
   position: absolute;
   bottom: -100%;
-  left: 40%;
+  left: 45%;
   font-size: 17px; }
   .scroll-arrow .arrow {
     background-image: url(../img/down_arrow.png);
@@ -81,38 +81,32 @@ body {
 .noborder {
   border: none !important; }
 
-.content-left {
-  visibility: hidden;
+[class*="content-"] {
+  transition: all 0.3s ease;
+  opacity: 0;
   display: flex;
-  justify-content: flex-start;
   flex-flow: row wrap;
   height: 250px;
+  z-index: 10; }
+
+.content-left {
+  justify-content: flex-start;
   padding-left: 100px;
   border-top: 11px dotted #333; }
 
 .content-left2 {
-  visibility: hidden;
-  display: flex;
   justify-content: flex-start;
-  flex-flow: row wrap;
-  height: 250px;
   border-top: 11px dotted #333;
   margin: 50px 0;
   padding-left: 100px; }
 
 .content-right {
-  visibility: hidden;
-  display: flex;
   justify-content: flex-end;
-  flex-flow: row wrap;
-  height: 250px;
   border-top: 5px dotted #333;
   margin: 50px 0;
   padding-right: 100px; }
 
 .content-center {
-  visibility: hidden;
-  display: flex;
   justify-content: center;
   flex-flow: row wrap;
   height: 170px;
@@ -134,7 +128,7 @@ body {
   text-align: center; }
 
 .form1 {
-  transform: translatex(-70%);
+  transform: translatey(20%) translatex(-70%);
   animation: none; }
 
 .text1 {
@@ -142,35 +136,21 @@ body {
   left: 8em; }
 
 .form2 {
-  transform: translatey(0%) translatex(50%); }
+  transform: translatey(20%) translatex(50%); }
 
 .text2 {
   top: 8em;
   left: 4em; }
 
 .form3 {
-  transform: translatey(5%) translatex(15%);
-  animation: none; }
-
-@keyframes left {
-  0% {
-    transform: translatex(-70%); }
-  100% {
-    transform: translatex(15%) translatey(5%); } }
+  transform: translatey(0%) translatex(-70%); }
 
 .text3 {
   top: 10em;
   left: 4em; }
 
 .form4 {
-  transform: translatey(25%);
-  animation: none; }
-
-@keyframes fromBottom {
-  0% {
-    transform: translatey(150%); }
-  100% {
-    transform: translatey(25%); } }
+  transform: translatey(35%); }
 
 .text4 {
   top: 8em;

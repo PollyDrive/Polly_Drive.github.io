@@ -51,57 +51,57 @@ $(document).ready( function(){
 			header.classList.remove('header_up');
 			header.classList.add('header');
 			setTimeout(function(e){
-				$('.scroll-arrow').css({'display': 'flex'});
-			},600);
-			
+				$('.scroll-arrow').css({'display': 'flex'})
+			},300);
 		}
-		if(!form1Activated && form1.getBoundingClientRect().top < 200){
+		if(!form1Activated && form1.getBoundingClientRect().top <= 500){
 			form1Activated = true;
-			cLeft.style.visibility = 'visible';
+			cLeft.style.opacity = '1';
 			form1.style.opacity = '1';
-			cRight.style.visibility = 'visible';
-			form1.style.transform = 'translatey(5%) translatex(15%)';
+			cRight.style.opacity = '1';
+			form1.style.transform = 'translatey(25%) translatex(15%)';
 		}
 		if(form1Activated && form1.getBoundingClientRect().top > 200){
 			form1Activated = false;
-			cLeft.style.visibility = 'hidden';
+			cLeft.style.opacity = '0';
 			form1.style.opacity = '0';
-			cRight.style.visibility = 'hidden';
-			form1.style.transform = 'translatey(0%) translatex(-70%)';
+			cRight.style.opacity = '0';
+			form1.style.transform = 'translatey(20%) translatex(-70%)';
 		}
-		if(!form2Activated && form2.getBoundingClientRect().top < 200){
+		if(!form2Activated && form2.getBoundingClientRect().top < 300){
 			form2Activated = true;
 			form2.style.opacity = '1';
-			form2.style.transform = 'translatey(0%) translatex(0%) ';
-			cLeftS.style.visibility = 'visible';
+			form2.style.transform = 'translatey(20%) translatex(0%) ';
+			cLeftS.style.opacity = '1';
 		}
 		if(form2Activated && form2.getBoundingClientRect().top > 200){
 			form2Activated = false;
 			form2.style.opacity = '0';
 			form2.style.transform = 'translatey(20%) translatex(50%)';
-			cLeftS.style.visibility = 'visible';
+			cLeftS.style.opacity = '0';
 		}
 		if(!form3Activated && form3.getBoundingClientRect().top < 200){
 			form3Activated = true;
 			form3.style.opacity = '1';
-			form2.style.transform = 'translatex(15%) translatey(5%)';
-			cCenter.style.visibility = 'visible';
+			form3.style.transform = 'translatex(15%) translatey(5%)';
+			cCenter.style.opacity = '1';
 		}
 		if(form3Activated && form3.getBoundingClientRect().top > 200){
-			form3Activated = true;
+			form3Activated = false;
 			form3.style.opacity = '0';
 			form3.style.transform = 'translatey(0%) translatex(-70%)';
-			cCenter.style.visibility = 'visible';
+			cCenter.style.opacity = '0';
 		}
-		if(scrolled > cCenter.getBoundingClientRect().bottom+280){
+		if(!form4Activated && form4.getBoundingClientRect().top < 450){
+			form4Activated = true;
 			form4.style.opacity = '1';
-			form4.style.animation = 'fromBottom 3.5s ease';
+			form4.style.transform = 'translatey(15%)';
 		}
+		if(form4Activated && form4.getBoundingClientRect().top > 300){
+			form4Activated = false;
+			form4.style.opacity = '0';
+			form4.style.transform = 'translatey(35%)';
+		}
+		console.log(form4.getBoundingClientRect().top)
 	}
-		console.log(cLeft.getBoundingClientRect().top);
-		console.log(form1.getBoundingClientRect().top);
-		console.log(pageYOffset);
-		console.log(pageXOffset);
-		console.log(cLeftS.getBoundingClientRect().bottom);
-		console.log(cCenter.getBoundingClientRect().bottom);
 });
