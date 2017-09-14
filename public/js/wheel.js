@@ -30,10 +30,10 @@ $(document).ready( function(){
     $('.wheel-content').on("click", function(e){
     	e.preventDefault;
     	wheel.css({'animation': 'none'});
-    	$('.disease-card').css({'animation': 'opacity 1.5s linear', 'visibility':'visible', 'transform': 'translatey(125%) translatex(15%)'});
-    	setTimeout(function(e){
-    		$('.more').css({'animation': 'opacity 1s linear','display':'block', 'transform': 'translateY(21%) translateX(26%)'})
-    	}, 4000);
+    	$('.disease-card').css({'animation': 'opacity 1.5s linear', 'visibility':'visible', 'transform': 'translatey(-40%) translatex(-5%)'});
+    	// setTimeout(function(e){
+    	// 	$('.more').css({'animation': 'opacity 1s linear','display':'block', 'transform': 'translateY(21%) translateX(26%)'})
+    	// }, 4000);
     });
 
 // function appearsAndTurns(){
@@ -77,7 +77,7 @@ $(document).ready( function(){
 		if(form2Activated && form2.getBoundingClientRect().top > 200){
 			form2Activated = false;
 			form2.style.opacity = '0';
-			form2.style.transform = 'translatey(30%) translatex(50%)';
+			form2.style.transform = 'translatey(30%) translatex(20%)';
 			cLeftS.style.opacity = '0';
 		}
 		if(!form3Activated && form3.getBoundingClientRect().top < 200){

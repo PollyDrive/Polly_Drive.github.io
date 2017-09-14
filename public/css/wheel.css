@@ -136,7 +136,7 @@ body {
   left: 8em; }
 
 .form2 {
-  transform: translatey(30%) translatex(50%); }
+  transform: translatey(30%) translatex(20%); }
 
 .text2 {
   top: 8em;
@@ -160,8 +160,8 @@ body {
   animation: none; }
 
 .text5 {
-  top: 4.5em;
-  left: 6em;
+  top: 3.2em;
+  left: 4em;
   color: #333; }
 
 .wheel-content {
@@ -170,20 +170,24 @@ body {
   justify-content: center;
   transform: translatey(60%);
   padding: 30px;
-  background-color: #fff0f5;
-  height: 700px; }
+  height: 620px; }
+  .wheel-content .content-right, .wheel-content .content-left {
+    visibility: visible;
+    opacity: 1;
+    border: none; }
 
 .wheel-description {
-  transform: translatey(25%) translatex(50%); }
+  transform: translatey(-50%) translatex(22%); }
 
 .wheel-container {
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-  min-width: 500px;
-  max-width: 500px;
-  min-height: 500px;
-  max-height: 500px;
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  transform: translatey(-35%) translatex(16%);
   border: 2px solid #969899;
   animation: none;
   animation-fill-mode: backwards;
@@ -194,12 +198,12 @@ body {
 
 [class*='wheel-item'] {
   position: absolute;
-  width: 250px;
-  height: 250px;
-  background-color: #fff;
+  width: 200px;
+  height: 100px;
+  background-color: #000;
   left: 0;
-  top: 0;
-  border: 1px solid #ddd;
+  top: 100px;
+  border: 1px solid #000;
   transform-origin: right bottom;
   overflow: hidden; }
 
@@ -208,12 +212,12 @@ body {
   bottom: 0;
   right: 0;
   background-color: #fff;
-  width: 250px;
-  height: 125px; }
+  width: 200px;
+  height: 100px; }
   .disease img {
     color: #fff;
     position: absolute;
-    height: 45px;
+    height: 30px;
     top: 40%;
     left: 50%;
     transform: skew(-60deg) rotate(-75deg); }
@@ -268,9 +272,10 @@ body {
 
 .disease-card {
   visibility: hidden;
-  transform: translatey(125%) translatex(15%);
+  transform: translatey(15%) translatex(75%);
   transition: all 1.5s ease;
   width: 400px;
+  height: 100%;
   font-size: 20px;
   font-family: officina;
   max-width: 500px;
@@ -279,9 +284,6 @@ body {
   background-color: #FFF;
   box-shadow: 3px 8px 10px 3px #ddd;
   animation: none; }
-
-.yourBiase {
-  padding: 1em 2em; }
 
 .description-name {
   font-family: teslics; }
