@@ -117,7 +117,7 @@ body {
   position: absolute;
   z-index: 20;
   opacity: 0;
-  transition: all 1.6s ease; }
+  transition: all 1.5s ease; }
 
 [class*="text"] {
   font-family: officina;
@@ -136,7 +136,7 @@ body {
   left: 8em; }
 
 .form2 {
-  transform: translatey(20%) translatex(50%); }
+  transform: translatey(30%) translatex(50%); }
 
 .text2 {
   top: 8em;
@@ -166,14 +166,15 @@ body {
 
 .wheel-content {
   display: none;
-  justify-content: space-around;
-  transform: translatey(100%);
+  flex-flow: column;
+  justify-content: center;
+  transform: translatey(60%);
   padding: 30px;
   background-color: #fff0f5;
-  height: 800px; }
+  height: 700px; }
 
 .wheel-description {
-  transform: translatey(-25%); }
+  transform: translatey(25%) translatex(50%); }
 
 .wheel-container {
   position: relative;
@@ -190,17 +191,6 @@ body {
 
 .wheel {
   list-style: none; }
-
-.wheel-shadow {
-  position: absolute;
-  background-color: transparent;
-  border-radius: 50%;
-  bottom: 45px;
-  left: 140px;
-  width: 386px;
-  transform: skewX(-5deg);
-  height: 50px;
-  /* z-index: -1; */ }
 
 [class*='wheel-item'] {
   position: absolute;
@@ -219,12 +209,12 @@ body {
   right: 0;
   background-color: #fff;
   width: 250px;
-  height: 250px; }
+  height: 125px; }
   .disease img {
     color: #fff;
     position: absolute;
     height: 45px;
-    top: 70%;
+    top: 40%;
     left: 50%;
     transform: skew(-60deg) rotate(-75deg); }
 
@@ -295,15 +285,3 @@ body {
 
 .description-name {
   font-family: teslics; }
-
-.more {
-  display: none;
-  width: 350px; }
-
-.blot {
-  position: relative; }
-
-.more_text {
-  top: 3.9em;
-  left: 0.4em;
-  font-size: 37px; }

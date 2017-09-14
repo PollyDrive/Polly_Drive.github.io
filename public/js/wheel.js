@@ -71,13 +71,13 @@ $(document).ready( function(){
 		if(!form2Activated && form2.getBoundingClientRect().top < 300){
 			form2Activated = true;
 			form2.style.opacity = '1';
-			form2.style.transform = 'translatey(20%) translatex(0%) ';
+			form2.style.transform = 'translatey(35%) translatex(0%) ';
 			cLeftS.style.opacity = '1';
 		}
 		if(form2Activated && form2.getBoundingClientRect().top > 200){
 			form2Activated = false;
 			form2.style.opacity = '0';
-			form2.style.transform = 'translatey(20%) translatex(50%)';
+			form2.style.transform = 'translatey(30%) translatex(50%)';
 			cLeftS.style.opacity = '0';
 		}
 		if(!form3Activated && form3.getBoundingClientRect().top < 200){
@@ -86,7 +86,7 @@ $(document).ready( function(){
 			form3.style.transform = 'translatex(15%) translatey(5%)';
 			cCenter.style.opacity = '1';
 		}
-		if(form3Activated && form3.getBoundingClientRect().top > 200){
+		if(form3Activated && form3.getBoundingClientRect().top > 300){
 			form3Activated = false;
 			form3.style.opacity = '0';
 			form3.style.transform = 'translatey(0%) translatex(-70%)';
@@ -102,6 +102,5 @@ $(document).ready( function(){
 			form4.style.opacity = '0';
 			form4.style.transform = 'translatey(35%)';
 		}
-		console.log(form4.getBoundingClientRect().top)
 	}
 });
