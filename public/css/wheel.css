@@ -35,7 +35,7 @@ body {
   padding: 1em 3em 0;
   font: 20px/16px teslics;
   text-align: left;
-  box-shadow: 0 1px 10px 1px #e9e9e9;
+  box-shadow: 0 1px 10px 0px rgba(85, 85, 85, 0.5);
   z-index: 200; }
   .header_up .header_sm {
     font: 15px/20px teslics;
@@ -92,12 +92,14 @@ body {
 .content-left {
   justify-content: flex-start;
   padding-left: 100px;
-  border-top: 11px dotted #333; }
+  border-top: 11px dotted #333;
+  height: 500px; }
 
 .content-left2 {
   justify-content: flex-start;
   border-top: 11px dotted #333;
   margin: 50px 0;
+  height: 300px;
   padding-left: 100px; }
 
 .content-right {
@@ -109,7 +111,7 @@ body {
 .content-center {
   justify-content: center;
   flex-flow: row wrap;
-  height: 170px;
+  height: 450px;
   border-top: 18px dotted #333;
   margin-top: 50px; }
 
@@ -128,7 +130,7 @@ body {
   text-align: center; }
 
 .form1 {
-  transform: translatey(20%) translatex(-70%);
+  transform: translatey(50%) translatex(-30%);
   animation: none; }
 
 .text1 {
@@ -160,35 +162,47 @@ body {
   animation: none; }
 
 .text5 {
-  top: 3.2em;
+  top: 3.5em;
+  left: 5em;
+  color: #fff; }
+
+.circle6 {
+  position: absolute;
+  right: 2em; }
+
+.text6 {
+  top: 4.2em;
   left: 4em;
-  color: #333; }
+  color: #fff; }
 
 .wheel-content {
+  background: linear-gradient(to bottom, #fff, #fff);
   display: none;
-  flex-flow: column;
+  height: 780px;
+  flex-flow: row wrap;
   justify-content: center;
-  transform: translatey(60%);
-  padding: 30px;
-  height: 620px; }
+  align-items: center;
+  padding: 30px 30px 0 30px;
+  position: relative; }
   .wheel-content .content-right, .wheel-content .content-left {
     visibility: visible;
     opacity: 1;
     border: none; }
 
 .wheel-description {
-  transform: translatey(-50%) translatex(22%); }
+  position: absolute;
+  right: 2em;
+  top: 5em; }
 
 .wheel-container {
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 400px;
-  max-height: 400px;
-  transform: translatey(-35%) translatex(16%);
-  border: 2px solid #969899;
+  min-width: 500px;
+  max-width: 500px;
+  min-height: 500px;
+  max-height: 500px;
+  border: 2px solid #df972f;
   animation: none;
   animation-fill-mode: backwards;
   animation-play-state: running; }
@@ -198,26 +212,36 @@ body {
 
 [class*='wheel-item'] {
   position: absolute;
-  width: 200px;
-  height: 100px;
-  background-color: #000;
+  width: 250px;
+  height: 125px;
   left: 0;
-  top: 100px;
-  border: 1px solid #000;
+  top: 125px;
   transform-origin: right bottom;
   overflow: hidden; }
+
+.wheel-circle_sm {
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  border-radius: 50%;
+  background-color: #FFF; }
+  .wheel-circle_sm img {
+    position: absolute;
+    z-index: 0;
+    top: 30%;
+    height: 10%; }
 
 .disease {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: #fff;
-  width: 200px;
-  height: 100px; }
+  background-color: transparent;
+  width: 250px;
+  height: 125px; }
   .disease img {
     color: #fff;
     position: absolute;
-    height: 30px;
+    height: 50px;
     top: 40%;
     left: 50%;
     transform: skew(-60deg) rotate(-75deg); }
@@ -229,46 +253,77 @@ body {
     opacity: 1; } }
 
 .wheel-item1 {
-  transform: rotate(30deg) skew(60deg); }
+  transform: rotate(30deg) skew(60deg);
+  background-color: #ffae3b; }
 
 .wheel-item2 {
-  transform: rotate(60deg) skew(60deg); }
+  transform: rotate(60deg) skew(60deg);
+  background-color: #ffb956; }
 
 .wheel-item3 {
-  transform: rotate(90deg) skew(60deg); }
+  transform: rotate(90deg) skew(60deg);
+  background-color: #ffa82c; }
 
 .wheel-item4 {
-  transform: rotate(120deg) skew(60deg); }
+  transform: rotate(120deg) skew(60deg);
+  background-color: #ffbf65; }
 
 .wheel-item5 {
-  transform: rotate(150deg) skew(60deg); }
+  transform: rotate(150deg) skew(60deg);
+  background-color: #ffa11d; }
 
 .wheel-item6 {
-  transform: rotate(180deg) skew(60deg); }
+  transform: rotate(180deg) skew(60deg);
+  background-color: #ffc675; }
 
 .wheel-item7 {
-  transform: rotate(210deg) skew(60deg); }
+  transform: rotate(210deg) skew(60deg);
+  background-color: #ff9b0d; }
 
 .wheel-item8 {
-  transform: rotate(240deg) skew(60deg); }
+  transform: rotate(240deg) skew(60deg);
+  background-color: #ffcc84; }
 
 .wheel-item9 {
-  transform: rotate(270deg) skew(60deg); }
+  transform: rotate(270deg) skew(60deg);
+  background-color: #fd9400; }
 
 .wheel-item10 {
-  transform: rotate(300deg) skew(60deg); }
+  transform: rotate(300deg) skew(60deg);
+  background-color: #ffd293; }
 
 .wheel-item11 {
-  transform: rotate(330deg) skew(60deg); }
+  transform: rotate(330deg) skew(60deg);
+  background-color: #ee8b00; }
 
 .wheel-item12 {
-  transform: rotate(360deg) skew(60deg); }
+  transform: rotate(360deg) skew(60deg);
+  background-color: #ffd9a3; }
 
 @keyframes rotate {
   0% {
     transform: rotate(0deg); }
   100% {
-    transform: rotate(1437deg); } }
+    transform: rotate(721deg); } }
+
+.corner {
+  position: absolute;
+  bottom: 0px;
+  left: 0px; }
+
+.push-button {
+  position: absolute;
+  bottom: 10%;
+  right: 35%;
+  height: 51px;
+  width: 29%;
+  background: #ffcf8c;
+  color: #c83e19;
+  font-size: 30px;
+  font-family: officina;
+  border-radius: 50px;
+  border: 3px solid #c83e19;
+  outline: none; }
 
 .disease-card {
   visibility: hidden;
@@ -285,5 +340,37 @@ body {
   box-shadow: 3px 8px 10px 3px #ddd;
   animation: none; }
 
-.description-name {
-  font-family: teslics; }
+.result {
+  display: none;
+  background-color: #fff;
+  height: 677px;
+  position: relative; }
+
+.result-header {
+  font-family: officina;
+  font-size: 2.5em;
+  padding: 1em;
+  text-align: center; }
+
+.result-biase {
+  font-family: teslics;
+  font-size: 1.2em; }
+
+.result-description {
+  font: 2em/1.2em officina;
+  display: flex;
+  justify-content: center; }
+  .result-description .text {
+    width: 50%;
+    color: #333; }
+
+.wheel-circle {
+  position: absolute;
+  right: 15%;
+  bottom: 10%;
+  border-radius: 50%;
+  height: 324px;
+  width: 328px;
+  overflow: hidden; }
+  .wheel-circle img {
+    height: 100%; }

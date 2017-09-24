@@ -24,21 +24,29 @@ $(document).ready( function(){
         var id  = $(this).attr('href'),
         top = $(id).offset().top;
         $('body,html').animate({scrollTop: top}, 1500);
-        setTimeout(appearsAndTurns, 1800);
     });
 
-    $('.wheel-content').on("click", function(e){
+    $('.push-button').on("click", function(e){
     	e.preventDefault;
-    	wheel.css({'animation': 'none'});
-    	$('.disease-card').css({'animation': 'opacity 1.5s linear', 'visibility':'visible', 'transform': 'translatey(-40%) translatex(-5%)'});
+    	appearsAndTurns();
+    	// wheel.css({'animation': 'none'});
+    	// $('.disease-card').css({'animation': 'opacity 1.5s linear', 'visibility':'visible'});
     	// setTimeout(function(e){
     	// 	$('.more').css({'animation': 'opacity 1s linear','display':'block', 'transform': 'translateY(21%) translateX(26%)'})
     	// }, 4000);
     });
 
-// function appearsAndTurns(){
-// 	wheel.css({'animation': 'rotate 1s infinite linear'});
-// }
+function appearsAndTurns(){
+	wheel.css({'animation': 'rotate 1s infinite linear'});
+	$('.push-button').on("click", function(e){
+		wheel.css({'animation': 'none'});
+		var result = $('.result');
+        result.css({'display': 'block'});
+        var resultId  = $(result).attr('href'),
+        top = $(this).offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+	})
+}
 	
 	window.onscroll = function(){
 		var scrolled = window.pageYOffset;
@@ -59,14 +67,15 @@ $(document).ready( function(){
 			cLeft.style.opacity = '1';
 			form1.style.opacity = '1';
 			cRight.style.opacity = '1';
-			form1.style.transform = 'translatey(25%) translatex(15%)';
+			form1.style.transform = 'translatey(50%) translatex(15%)';
 		}
 		if(form1Activated && form1.getBoundingClientRect().top > 200){
 			form1Activated = false;
-			cLeft.style.opacity = '0';
+			// cLeft.style.opacity = '0';
+			form1.style.transform = 'translatey(50%) translatex(-30%)';
 			form1.style.opacity = '0';
 			cRight.style.opacity = '0';
-			form1.style.transform = 'translatey(20%) translatex(-70%)';
+			
 		}
 		if(!form2Activated && form2.getBoundingClientRect().top < 300){
 			form2Activated = true;
@@ -80,7 +89,7 @@ $(document).ready( function(){
 			form2.style.transform = 'translatey(30%) translatex(20%)';
 			cLeftS.style.opacity = '0';
 		}
-		if(!form3Activated && form3.getBoundingClientRect().top < 200){
+		if(!form3Activated && form3.getBoundingClientRect().top < 100){
 			form3Activated = true;
 			form3.style.opacity = '1';
 			form3.style.transform = 'translatex(15%) translatey(5%)';
@@ -92,7 +101,7 @@ $(document).ready( function(){
 			form3.style.transform = 'translatey(0%) translatex(-70%)';
 			cCenter.style.opacity = '0';
 		}
-		if(!form4Activated && form4.getBoundingClientRect().top < 450){
+		if(!form4Activated && form4.getBoundingClientRect().top < 300){
 			form4Activated = true;
 			form4.style.opacity = '1';
 			form4.style.transform = 'translatey(15%)';
