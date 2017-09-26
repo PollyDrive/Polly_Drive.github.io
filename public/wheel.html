@@ -7,10 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="css/wheel.css">
 </head>
 <body>
-<div class="header-container">
+<div class="header-container" id="headerCont">
 	<div class="header">
-		<div>Когнитивные искажения</div>
-		<div class="header_sm"> на каждый день</div>
+		<div id="header_logo">
+			<span>Когнитивные искажения</span>
+			<div class="header_sm"> на каждый день</div>
+		</div>
 		<div class="scroll-arrow">Scroll down. 
 			<span class="arrow">
 			</span>
@@ -49,7 +51,7 @@
 <div class="wheel-content" id="wheelContent">
 	<div class="wheel-description">
 		<div class="circle5">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="40.35421449282444 38.13295846904634 586.7848304452812 440.36003654056253" width="482.78" height="436.36"><defs><path d="M536.15 99.01C585.48 121.47 618.25 169.47 621.21 223.59C622.58 248.67 622.46 246.53 623.98 274.27C626.43 319.09 600.46 360.61 559.09 378.01C507.37 399.77 413.72 439.16 360.14 461.71C321.62 477.91 278.6 479.9 238.76 467.31C194.7 453.4 150.73 439.51 113.29 427.68C60.41 410.98 30.27 355.37 45.15 301.94C53.38 272.36 51.01 280.88 59.15 251.66C76.45 189.53 119.36 137.7 177.16 109.1C213.7 91.03 240.16 77.94 278.62 58.92C330.02 33.49 390.13 32.53 442.32 56.29C477.13 72.14 500.89 82.96 536.15 99.01Z" id="a8v1voLsX"></path></defs><g><g><use xlink:href="#a8v1voLsX" opacity="1" fill="#0e9988" fill-opacity="1"></use></g></g></svg>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="40.35421449282444 38.13295846904634 586.7848304452812 440.36003654056253" width="382.78" height="536.36"><defs><path d="M536.15 99.01C585.48 121.47 618.25 169.47 621.21 223.59C622.58 248.67 622.46 246.53 623.98 274.27C626.43 319.09 600.46 360.61 559.09 378.01C507.37 399.77 413.72 439.16 360.14 461.71C321.62 477.91 278.6 479.9 238.76 467.31C194.7 453.4 150.73 439.51 113.29 427.68C60.41 410.98 30.27 355.37 45.15 301.94C53.38 272.36 51.01 280.88 59.15 251.66C76.45 189.53 119.36 137.7 177.16 109.1C213.7 91.03 240.16 77.94 278.62 58.92C330.02 33.49 390.13 32.53 442.32 56.29C477.13 72.14 500.89 82.96 536.15 99.01Z" id="a8v1voLsX"></path></defs><g><g><use xlink:href="#a8v1voLsX" opacity="1" fill="#0e9988" fill-opacity="1"></use></g></g></svg>
 			<div class="text5">
 				В секциях колеса скрываются более сотни когнитивных искажений, эффектов и расстройств. Нажми на кнопку, чтобы узнать, какое искажения ждет тебя сегодня!
 			</div>
@@ -57,7 +59,7 @@
 	</div>
 	<div class="wheel-container">
 		<div class="wheel-arrow">
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="251.8814647414097 248.16587011630455 34.760533976797234 52.18455723412288" width="30.76" height="48.18"><defs><path d="M256.14 255.63C261.82 247.18 274.19 246.98 280.13 255.25C281.33 256.91 278.4 252.83 281.03 256.5C284.13 260.82 284.5 266.53 281.97 271.21C280.09 274.69 275.39 283.41 267.86 297.35C260.63 283.01 256.11 274.04 254.3 270.46C252.15 266.19 252.46 261.1 255.13 257.14C257.67 253.35 255.08 257.21 256.14 255.63Z" id="l13lqEir0h"></path></defs><g><g><use xlink:href="#l13lqEir0h" opacity="1" fill="#d23a2a" fill-opacity="1"></use></g></g></svg>
+			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="251.8814647414097 248.16587011630455 34.760533976797234 52.18455723412288" width="30.76" height="48.18"><defs><path d="M256.14 255.63C261.82 247.18 274.19 246.98 280.13 255.25C281.33 256.91 278.4 252.83 281.03 256.5C284.13 260.82 284.5 266.53 281.97 271.21C280.09 274.69 275.39 283.41 267.86 297.35C260.63 283.01 256.11 274.04 254.3 270.46C252.15 266.19 252.46 261.1 255.13 257.14C257.67 253.35 255.08 257.21 256.14 255.63Z" id="l13lqEir0h"></path></defs><g><g><use xlink:href="#l13lqEir0h" opacity="1" fill="#d23a2a" stroke="#7f562f"  stroke-width="1" fill-opacity="1"></use></g></g></svg>
 		</div>
 		<div class="wheel" id="wheel">
 			<ul>
@@ -125,8 +127,6 @@
 			<div class="wheel-circle_sm">
 			</div>
 		</div>
-		
-
 	</div>
 	<div class="corner">
 		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="-1 343.2735042735043 641.6068376068378 299.7264957264957" width="637.61" height="295.73"><defs><path d="M99.31 401.47C103.69 415.28 113.14 426.91 125.76 434.02C132.27 437.69 131.88 437.47 138.31 441.09C151.61 448.58 165.68 454.58 180.29 458.99C197.12 464.06 218.02 470.36 232.95 474.86C253.6 481.09 272.33 492.46 287.39 507.91C298.98 519.8 308.31 529.38 319.28 540.63C335.72 557.5 359.02 565.82 382.43 563.19C401.1 561.08 419.69 558.99 438.28 556.89C462.72 554.14 487.41 558.93 509.05 570.61C526.19 579.86 569.04 602.99 637.61 640L0 640L0 344.27C31.2 349.91 50.7 353.44 58.5 354.85C75.49 357.92 89.38 370.14 94.6 386.59C96.9 393.87 96.67 393.15 99.31 401.47Z" id="aIs7XuoPY"></path></defs><g><g><use xlink:href="#aIs7XuoPY" opacity="1" fill="#009688" fill-opacity="1"></use></g></g></svg>
@@ -149,7 +149,6 @@
 	<div class="wheel-circle" id="result">
 			<img src="./img/out.jpeg">
 	</div>
-	
 </div>
 		
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

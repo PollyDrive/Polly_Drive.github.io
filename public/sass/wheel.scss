@@ -1,6 +1,6 @@
 @font-face {
-  font-family: teslics;
-  src: url(../fonts/teslics.ttf); 
+  font-family: teslicsdocument;
+  src: url(../fonts/teslicsdocument.ttf); 
 }
 @font-face {
   font-family: officina;
@@ -9,6 +9,7 @@
 body{
 	padding: 0;
 	margin:0;
+	min-width: 1175px;
 }
 .header-container{
 	height: 0;
@@ -20,17 +21,22 @@ body{
     top: 50%;
     left: 50%;
     transform: translatey(-50%) translatex(-50%);
-    font: 40px/36px teslics;
+    font: 40px/36px teslicsdocument;
+    font-weight: 100;
     color: #333;
     text-align: center;
     transition: all 1s ease;
     background-color: #fff;
     white-space: nowrap;
     .header_sm{
-		font: 35px/30px teslics;
+		font: 35px/30px teslicsdocument;
+		font-weight: 100;
 		color: #fcc261;
 		margin-top: 1em;
     }
+}
+.header_up #header_logo{
+	width: 285px;
 }
 .header_up{
 	position: fixed;
@@ -40,18 +46,22 @@ body{
 	background-color: rgba(255,255,255,0.5);
 	transition: all 1s ease;
 	padding: 2em 3em 0.5em;
-	font: 20px/16px teslics;
+	font: 20px/16px teslicsdocument;
+	font-weight: 100;
 	text-align: left;
 	// box-shadow: 0 1px 10px 0px rgba(85, 85, 85, 0.5);
 	z-index: 200;
 	.header_sm{
-		font: 15px/20px teslics;
+		font: 15px/20px teslicsdocument;
+		font-weight: 100;
 		color: #fcc261;
 		margin-top: .4em;
     }
 }
 .header_up:hover{
 	cursor: pointer;
+	color: #fcc261;
+	transition: all .2s ease;
 }
 .scroll-arrow{
 	display: flex;
@@ -178,9 +188,11 @@ body{
 	animation: none;
 }
 .text5{
-	top: 5.5em;
-    left: 5em;
+	top: 7.5em;
+    right: 2em;
     color: #fff;
+    width: 70%;
+    font-size: 22px;
 }
 .circle6{
 	position: absolute;
@@ -211,7 +223,7 @@ body{
 .wheel-description{
 	position: fixed;
 	right: 2em;
-	top: 3.5em;
+	top: .5em;
 }
 .wheel-container{
 	position: fixed;
@@ -242,10 +254,8 @@ body{
 	position: absolute;
 	width: 250px;
 	height: 125px;
-	// background-color: #000;
 	left: 0;
 	top: 125px;
-	// border: 1px solid #333;
 	transform-origin: right bottom;
 	overflow: hidden;
 }
@@ -346,8 +356,8 @@ $person: 1;
 }
 .corner{
 	position: fixed;
-	bottom: 0px;
-    left: 0px;
+	bottom: -8px;
+    left: -8px;
     z-index: -1;
 }
 [class*='button']{
@@ -397,7 +407,8 @@ $person: 1;
     text-align: center;
 }
 .result-biase{
-	font-family: teslics;
+	font-family: teslicsdocument;
+	font-weight: 100;
 	font-size: 1em;
 }
 .result-body{
@@ -406,18 +417,19 @@ $person: 1;
 	width: 50%;
 }
 .result-description{
-	font: 1.5em/1.4em officina;
+	font: 1.6em/1.4em officina;
 	text-align: center;
-	color: #333;
+	color: #000;
 }
 .wheel-circle{
     position: absolute;
-    right: 10%;
-    bottom: 10%;
+    right: 8%;
+    bottom: 7%;
     border-radius: 50%;
-    height: 324px;
-    width: 328px;
+    height: 450px;
+    width: 450px;
     overflow: hidden;
+    opacity: 0.3;
 	img{
 		height: 100%;
 	}

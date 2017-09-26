@@ -44,6 +44,10 @@ function setWidthToScreen(elem){
 	var windowWidth = document.documentElement.clientWidth;
 	elem.css({width: windowWidth});
 }
+$('#header_logo').on('click', function(e){
+	e.preventDefault();
+    $('body,html').animate({scrollTop: 0}, 1000);
+});
 
 $(".button-disease").on("click", function (e) {
     e.preventDefault();
@@ -63,29 +67,31 @@ function turnOn(){
 }; 
 $('.push-button').on("click", function(e){
 	if(wheelIsActive){
-		// wheel.css({animation: 'slowRotate'});
 		wheel.css({animationPlayState: 'paused'});
 		setTimeout(function(e){
 	        $('.result').css({'display': 'block', 'height': '677px'});
-	        var resultId  = $(result).attr('href'),
-	        top = $('#result').offset().top + 300;
-	        $('body,html').animate({scrollTop: top}, 1000);
-	        // $('.push-button').css({'bottom':'15%'});
+	        var resultId  = $(resultId).attr('href'),
+	        top = $('#resultId').offset().top + 300;
+	        $('body,html').animate({scrollTop: top}, 600);
 	        $('.push').css({'opacity': '0', 'display': 'none'});
-		},1000);
-		if(biases){
+	        $('body').css({'overflow': 'scroll'});
+	        $('.push-button').html('Запустить колесо');
+	        $('body').css({'overflow': 'hidden'});
+		},600);
+	if(biases){
 		setTimeout(function(){
 			var yourBiase = Math.floor(Math.random() * biases.length);
 			// console.log(biases[yourBiase]);
-			$('#biaseName').html( biases[yourBiase].name );
+			$('#biaseName').html( biases[yourBiase].name);
 			$('#biaseDescription').html( biases[yourBiase].description );
-		},1000);
+		},600);
 	}
-		wheelIsActive = false;
+	wheelIsActive = false;
 	}else{
 		e.preventDefault;
     	turnOn();
     	wheelIsActive = true;
+    	$('.push-button').html('Остановить колесо');
 	}
 });
 
@@ -93,6 +99,7 @@ $('.result-button').on('click', function(e){
 	$('.result').css({'height': '0'});
 	setTimeout(function(){
 		$('.push').css({'opacity': '1', 'display': 'block'});
+		$('body').css({'overflow': 'auto'});
 	},400)	
 });
 	
@@ -115,7 +122,7 @@ $('.result-button').on('click', function(e){
 			form1Activated = true;
 			form1.style.opacity = '1';
 			cRight.style.opacity = '1';
-			form1.style.transform = 'translatey(20%) translatex(15%)';
+			form1.style.transform = 'translatey(20%) translatex(25%)';
 		}
 		if(form1Activated && form1.getBoundingClientRect().top > 200){
 			form1Activated = false;
@@ -156,7 +163,12 @@ $('.result-button').on('click', function(e){
 			form4.style.opacity = '0';
 			form4.style.transform = 'translatey(35%)';
 			wheelCont.css({'display': 'none', 'opacity': '0'});
-			 $('.push').css({'opacity': '0', 'display': 'none'});
+			$('.push').css({'opacity': '0', 'display': 'none'});
+			if(wheelIsActive){
+				wheel.css({animation: 'none'});
+				$('.push-button').html('Запустить колесо');
+				wheelIsActive = false;
+			}
 		}
 	}
 });
