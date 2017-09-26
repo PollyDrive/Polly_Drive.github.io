@@ -1,3 +1,16 @@
+var biases = [];
+
+$.ajax({
+  type: "GET",
+  url:"./js/readyArray.json",
+  dataType: "json",
+  success: function(data){
+  	biases = data;
+  },
+  fail: function() {
+  	//посмотреть
+  }
+});
 
 $(document).ready( function(){
 	var wheel = $('.wheel');
@@ -66,17 +79,20 @@ $('.push-button').on("click", function(e){
     	wheelIsActive = true;
 	}
 });
-		
-    
-
-
 
 $('.result-button').on('click', function(e){
 	$('.result').css({'height': '0'});
 	setTimeout(function(){
 		$('.push').css({'opacity': '1', 'display': 'block'});
 	},400)
-	
+	if(biases){
+		setTimeout(function(){
+			var yourBiase = Math.floor(Math.random() * biases.length);
+			// console.log(biases[yourBiase]);
+			$('#biaseName').html( biases[yourBiase].name );
+			$('#biaseDescription').html( biases[yourBiase].description );
+		},1000);
+	}	
 });
 	
 	window.onscroll = function(){
@@ -157,3 +173,6 @@ $('.result-button').on('click', function(e){
 		// }
 	}
 });
+
+// var name = $('#biaseName').html();
+// console.log(name);

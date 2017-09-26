@@ -59,5 +59,21 @@ fs.readFile('./data.json', function(err, data){
 	var arrWithDeletedText = deleteText(stringArray);
 	var arrWithDeletedSymbols = deleteSymbols(arrWithDeletedText);
 	var biaseObjectsArr = makeObjects(arrWithDeletedSymbols);
-	console.log(biaseObjectsArr[12]);
+	// console.log(biaseObjectsArr[12]);
+	fs.writeFile('../public/js/readyArray.json', JSON.stringify(biaseObjectsArr, null, 4), function(err){
+		if(err){
+			console.error(err);
+		} else{
+			console.log('Data saved');
+		}
+	});
+	// var yourBiase = Math.floor(Math.random() * diseaseArr.length);
+	// console.log(biaseObjectsArr[yourBiase]);
 });
+// var yourBiase = Math.floor(Math.random() * biaseObjectsArr.length);
+
+/*
+есть массив с объектами
+написать функцию,которая будет выбирать рандомный объект
+и подставлять его имя и описание в разметку
+*/
