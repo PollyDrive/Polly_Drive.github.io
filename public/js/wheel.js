@@ -47,13 +47,16 @@ function setWidthToScreen(elem){
 $('#header_logo').on('click', function(e){
 	e.preventDefault();
     $('body,html').animate({scrollTop: 0}, 1000);
+    $('.wheel-content').css({'opacity': '0'})
+    $('.result').css({'height': '0'})
+    $('body').css({'overflow': 'auto'});
 });
 
 $(".button-disease").on("click", function (e) {
     e.preventDefault();
     wheelCont.css({'display': 'flex', 'opacity': '1'});
-    var id  = $(this).attr('href'),
-    top = $(id).offset().top + 50;
+    var id  = $(this).attr('href');
+    var top = $(id).offset().top + 50;
     $('body,html').animate({scrollTop: top}, 1000);
     setTimeout(function(e){
 		 $('.push').css({'opacity': '1', 'display': 'block'});
@@ -63,30 +66,29 @@ $(".button-disease").on("click", function (e) {
 	
 function turnOn(){
 	wheel.css({'animation': 'rotate 1s infinite linear'});
-	return
 }; 
 $('.push-button').on("click", function(e){
 	if(wheelIsActive){
+		var yourBiase = Math.floor(Math.random() * biases.length);
+		$('#biaseName').html( biases[yourBiase].name);
+		$('#biaseDescription').html( biases[yourBiase].description );
 		wheel.css({animationPlayState: 'paused'});
+		$('.push-button').html('Результат...');
+		$('.push-button').css({'pointerEvents': 'none'});
+		// $('.result').css({'height': '0', 'display': 'none'});
+		$('.result').css({'display': 'block'})
 		setTimeout(function(e){
-	        $('.result').css({'display': 'block', 'height': '677px'});
-	        var resultId  = $(resultId).attr('href'),
-	        top = $('#resultId').offset().top + 300;
-	        $('body,html').animate({scrollTop: top}, 600);
+	        $('.result').css({'height': '677px'});
+	        var top = $('#resultId').offset().top;
+	        console.log(top);
+	        $('body,html').animate({scrollTop: top}, 900);
 	        $('.push').css({'opacity': '0', 'display': 'none'});
-	        $('body').css({'overflow': 'scroll'});
+	        // $('body').css({'overflow': 'auto'});
 	        $('.push-button').html('Запустить колесо');
-	        $('body').css({'overflow': 'hidden'});
+	        $('.push-button').css({'pointerEvents': 'all'});
+	        $('body').css({'overflow': 'hidden'})
 		},600);
-	if(biases){
-		setTimeout(function(){
-			var yourBiase = Math.floor(Math.random() * biases.length);
-			// console.log(biases[yourBiase]);
-			$('#biaseName').html( biases[yourBiase].name);
-			$('#biaseDescription').html( biases[yourBiase].description );
-		},600);
-	}
-	wheelIsActive = false;
+		wheelIsActive = false;
 	}else{
 		e.preventDefault;
     	turnOn();
@@ -96,11 +98,12 @@ $('.push-button').on("click", function(e){
 });
 
 $('.result-button').on('click', function(e){
+	$('.push').css({'opacity': '1', 'display': 'block'});
 	$('.result').css({'height': '0'});
-	setTimeout(function(){
-		$('.push').css({'opacity': '1', 'display': 'block'});
+	setTimeout(function(e){
 		$('body').css({'overflow': 'auto'});
-	},400)	
+		//$('.result').css({'display':'none'});
+	},1000)	
 });
 	
 	window.onscroll = function(){

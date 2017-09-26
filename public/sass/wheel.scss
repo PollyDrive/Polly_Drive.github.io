@@ -22,7 +22,7 @@ body{
     left: 50%;
     transform: translatey(-50%) translatex(-50%);
     font: 40px/36px teslicsdocument;
-    font-weight: 100;
+  
     color: #333;
     text-align: center;
     transition: all 1s ease;
@@ -30,7 +30,6 @@ body{
     white-space: nowrap;
     .header_sm{
 		font: 35px/30px teslicsdocument;
-		font-weight: 100;
 		color: #fcc261;
 		margin-top: 1em;
     }
@@ -47,13 +46,11 @@ body{
 	transition: all 1s ease;
 	padding: 2em 3em 0.5em;
 	font: 20px/16px teslicsdocument;
-	font-weight: 100;
 	text-align: left;
 	// box-shadow: 0 1px 10px 0px rgba(85, 85, 85, 0.5);
 	z-index: 200;
 	.header_sm{
 		font: 15px/20px teslicsdocument;
-		font-weight: 100;
 		color: #fcc261;
 		margin-top: .4em;
     }
@@ -188,11 +185,11 @@ body{
 	animation: none;
 }
 .text5{
-	top: 7.5em;
+	top: 7em;
     right: 2em;
     color: #fff;
     width: 70%;
-    font-size: 22px;
+    font-size: 24px;
 }
 .circle6{
 	position: absolute;
@@ -222,12 +219,12 @@ body{
 }
 .wheel-description{
 	position: fixed;
-	right: 2em;
-	top: .5em;
+	right: 1em;
+	top: 0.5em;
 }
 .wheel-container{
 	position: fixed;
-	top: 10%;
+	top: 15%;
 }
 .wheel{
 	z-index: -1;
@@ -383,6 +380,7 @@ $person: 1;
     color: #c83e19;
     border: 3px solid #c83e19;
     font-size: 30px;
+    transition: all .6s ease;
 }
 .push-button:hover{
 	background-color: darken(#ffcf8c, 10%);
@@ -408,20 +406,19 @@ $person: 1;
 }
 .result-biase{
 	font-family: teslicsdocument;
-	font-weight: 100;
 	font-size: 1em;
 }
 .result-body{
 	margin: auto;
     text-align: center;
-	width: 50%;
+	width: 60%;
 }
 .result-description{
 	font: 1.6em/1.4em officina;
 	text-align: center;
 	color: #000;
 }
-.wheel-circle{
+.wheel-face{
     position: absolute;
     right: 8%;
     bottom: 7%;
