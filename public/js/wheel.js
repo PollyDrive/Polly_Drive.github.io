@@ -19,6 +19,7 @@ $(document).ready( function(){
 	var wheelCont = $('.wheel-content');
 	var headerCont = $('.header-container');
 	var wheelScreenActive = false;
+	wheelIsActive = false;
 	setHeightToScreen(headerCont);
 	setWidthToScreen(headerCont);
 
@@ -31,31 +32,25 @@ function setWidthToScreen(elem){
 	elem.css({width: windowWidth});
 }
 
-    $(".button-disease").on("click", function (e) {
-        e.preventDefault();
-        wheelCont.css({'display': 'flex', 'opacity': '1'});
-        var id  = $(this).attr('href'),
-        top = $(id).offset().top + 50;
-        $('body,html').animate({scrollTop: top}, 1000);
-         // $('body').css({'overflow': 'hidden'});
-         // wheelCont.css({'zIndex': '-1'});
-        setTimeout(function(e){
-			 $('.push').css({'opacity': '1', 'display': 'block'});
-			wheelScreenActive = true;
-        },200)
-        
-    });
-
-    $('.push-button').on("click", function(e){
-    	e.preventDefault;
-    	turnOn();
-    });
-
+$(".button-disease").on("click", function (e) {
+    e.preventDefault();
+    wheelCont.css({'display': 'flex', 'opacity': '1'});
+    var id  = $(this).attr('href'),
+    top = $(id).offset().top + 50;
+    $('body,html').animate({scrollTop: top}, 1000);
+    setTimeout(function(e){
+		 $('.push').css({'opacity': '1', 'display': 'block'});
+		wheelScreenActive = true;
+    },200) 
+});
+	
 function turnOn(){
 	wheel.css({'animation': 'rotate 1s infinite linear'});
-	$('.push-button').on("click", function(e){
+	return
+}; 
+$('.push-button').on("click", function(e){
+	if(wheelIsActive){
 		wheel.css({animationPlayState: 'paused'});
-
 		setTimeout(function(e){
 	        $('.result').css({'display': 'block', 'height': '677px'});
 	        var resultId  = $(result).attr('href'),
@@ -63,10 +58,19 @@ function turnOn(){
 	        $('body,html').animate({scrollTop: top}, 1000);
 	        // $('.push-button').css({'bottom':'15%'});
 	        $('.push').css({'opacity': '0', 'display': 'none'});
-		},500)
+		},1000);
+		wheelIsActive = false;
+	}else{
+		e.preventDefault;
+    	turnOn();
+    	wheelIsActive = true;
+	}
+});
 		
-	})
-}
+    
+
+
+
 $('.result-button').on('click', function(e){
 	$('.result').css({'height': '0'});
 	setTimeout(function(){

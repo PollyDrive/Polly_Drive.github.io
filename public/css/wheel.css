@@ -24,7 +24,8 @@ body {
   color: #333;
   text-align: center;
   transition: all 1s ease;
-  background-color: #fff; }
+  background-color: #fff;
+  white-space: nowrap; }
   .header .header_sm {
     font: 35px/30px teslics;
     color: #fcc261;
@@ -349,9 +350,8 @@ body {
   opacity: 0;
   position: fixed;
   bottom: 55px;
-  left: 37%;
-  text-align: center;
-  z-index: 100; }
+  left: 50%;
+  transform: translatex(-50%); }
 
 .push-button {
   padding: 0 2em;

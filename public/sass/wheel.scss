@@ -25,6 +25,7 @@ body{
     text-align: center;
     transition: all 1s ease;
     background-color: #fff;
+    white-space: nowrap;
     .header_sm{
 		font: 35px/30px teslics;
 		color: #fcc261;
@@ -344,11 +345,10 @@ $person: 1;
 .push{
 	display: none;
 	opacity: 0;
-	position: fixed;
+    position: fixed;
     bottom: 55px;
-    left: 37%;
-	text-align: center;
-	z-index: 100;
+    left: 50%;
+    transform: translatex(-50%);
 }
 .push-button{
     padding: 0 2em;
