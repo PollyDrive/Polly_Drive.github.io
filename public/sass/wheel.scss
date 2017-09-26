@@ -128,6 +128,7 @@ body{
 	justify-content: center;
 	flex-flow: row wrap;
 	height: 560px;
+	padding-bottom: 1em;
 	border-top: 18px dotted #333;
 }
 [class *="form"]{
@@ -177,7 +178,7 @@ body{
 	animation: none;
 }
 .text5{
-	top: 3.5em;
+	top: 5.5em;
     left: 5em;
     color: #fff;
 }
@@ -210,13 +211,14 @@ body{
 .wheel-description{
 	position: fixed;
 	right: 2em;
-	top: 6em;
+	top: 3.5em;
 }
 .wheel-container{
 	position: fixed;
-	top: 15%;
+	top: 10%;
 }
 .wheel{
+	z-index: -1;
     position: relative;
     border-radius: 50%;
     overflow: hidden;
@@ -228,6 +230,10 @@ body{
     animation: none;
     animation-fill-mode: backwards;
     animation-play-state: running;
+    transform: rotate(15deg);
+}
+.wheel-arrow{
+	transform: translatex(48%) translatey(52%);
 }
 .wheel-list{
 	list-style: none;
@@ -291,7 +297,6 @@ body{
 @keyframes opacity{
 	0%{
 		opacity: 0;
-
 	}
 	100%{
 		opacity: 1;
@@ -328,6 +333,15 @@ $person: 1;
 	}
 	100%{
 		transform: rotate(721deg);
+	}
+}
+@keyframes slowRotate{
+	0%{
+		transform: rotate(0deg);
+
+	}
+	100%{
+		transform: rotate(210deg);
 	}
 }
 .corner{
@@ -384,7 +398,7 @@ $person: 1;
 }
 .result-biase{
 	font-family: teslics;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 .result-body{
 	margin: auto;
