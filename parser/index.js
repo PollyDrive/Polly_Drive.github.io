@@ -67,8 +67,7 @@ fs.readFile('./data.json', function(err, data){
 			console.log('Data saved');
 		}
 	});
-	// var yourBiase = Math.floor(Math.random() * diseaseArr.length);
-	// console.log(biaseObjectsArr[yourBiase]);
+
 });
 // var yourBiase = Math.floor(Math.random() * biaseObjectsArr.length);
 

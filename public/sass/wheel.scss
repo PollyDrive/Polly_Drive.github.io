@@ -22,7 +22,6 @@ body{
     left: 50%;
     transform: translatey(-50%) translatex(-50%);
     font: 40px/36px teslicsdocument;
-  
     color: #333;
     text-align: center;
     transition: all 1s ease;
@@ -35,7 +34,9 @@ body{
     }
 }
 .header_up #header_logo{
-	width: 285px;
+	width: 295px;
+	padding: 2em 3em 0.5em;
+	white-space: nowrap;
 }
 .header_up{
 	position: fixed;
@@ -44,7 +45,7 @@ body{
 	width: 100%;
 	background-color: rgba(255,255,255,0.5);
 	transition: all 1s ease;
-	padding: 2em 3em 0.5em;
+	height: 100px;
 	font: 20px/16px teslicsdocument;
 	text-align: left;
 	// box-shadow: 0 1px 10px 0px rgba(85, 85, 85, 0.5);
@@ -134,7 +135,7 @@ body{
 .content-center{
 	justify-content: center;
 	flex-flow: row wrap;
-	height: 560px;
+	height: 525px;
 	padding-bottom: 1em;
 	border-top: 18px dotted #333;
 }
@@ -175,7 +176,7 @@ body{
     left: 4em;
 }
 .form4{
-	transform: translatey(35%);
+	transform: translatey(5%);
 }
 .text4{
     top: 8em;
@@ -201,12 +202,9 @@ body{
     color: #fff;
 }
 .wheel-content{
-	background: linear-gradient(to bottom, #fff, #fff);
+	background-color: #fff;
 	display: none;
-    height: 666px;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+    height: 0;
 	padding: 30px 30px 0 30px;
 	position: relative;
 	transition: all 1s ease;
@@ -219,12 +217,14 @@ body{
 }
 .wheel-description{
 	position: fixed;
-	right: 1em;
-	top: 0.5em;
+    top: 2.5em;
+    left: 65%;
 }
 .wheel-container{
 	position: fixed;
-	top: 15%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translatey(-50%);
 }
 .wheel{
 	z-index: -1;
@@ -375,6 +375,7 @@ $person: 1;
     padding: 0 2em;
     right: 35%;
     height: 45px;
+    min-width: max-content;
     margin-top: 2%;
     background: #ffcf8c;
     color: #c83e19;

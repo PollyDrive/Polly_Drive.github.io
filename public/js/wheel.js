@@ -33,8 +33,10 @@ $(document).ready( function(){
 	var headerCont = $('.header-container');
 	var wheelScreenActive = false;
 	wheelIsActive = false;
+	var screenHeight = screen.height;
 	setHeightToScreen(headerCont);
 	setWidthToScreen(headerCont);
+
 
 function setHeightToScreen(elem){
 	var windowHeight = document.documentElement.clientHeight;
@@ -54,9 +56,11 @@ $('#header_logo').on('click', function(e){
 
 $(".button-disease").on("click", function (e) {
     e.preventDefault();
-    wheelCont.css({'display': 'flex', 'opacity': '1'});
+    var headerHeight = $('.header_up').height();
+    wheelCont.css({'height': screenHeight - (screenHeight*0.15),'display': 'flex', 'opacity': '1'});
+    // console.log(screenHeight*0.15)
     var id  = $(this).attr('href');
-    var top = $(id).offset().top + 50;
+    var top = $(id).offset().top;
     $('body,html').animate({scrollTop: top}, 1000);
     setTimeout(function(e){
 		 $('.push').css({'opacity': '1', 'display': 'block'});
@@ -78,7 +82,8 @@ $('.push-button').on("click", function(e){
 		// $('.result').css({'height': '0', 'display': 'none'});
 		$('.result').css({'display': 'block'})
 		setTimeout(function(e){
-	        $('.result').css({'height': '677px'});
+			 var headerHeight = $('.header_up').height();
+	        $('.result').css({'height': screenHeight - (screenHeight*0.1)});
 	        var top = $('#resultId').offset().top;
 	        console.log(top);
 	        $('body,html').animate({scrollTop: top}, 900);
@@ -108,6 +113,9 @@ $('.result-button').on('click', function(e){
 	
 	window.onscroll = function(){
 		var scrolled = window.pageYOffset;
+		// console.log(form3.getBoundingClientRect().bottom)
+		// console.log(screen.height)	
+		
 		if(scrolled > 30){
 			$('.scroll-arrow').css({'display': 'none'})
 			header.classList.remove('header');
@@ -117,54 +125,52 @@ $('.result-button').on('click', function(e){
 		if(scrolled < 30){
 			header.classList.remove('header_up');
 			header.classList.add('header');
-			// setTimeout(function(e){
-				$('.scroll-arrow').css({'display': 'flex'})
-			// },300);
+			$('.scroll-arrow').css({'display': 'flex'})
 		}
-		if(!form1Activated && form1.getBoundingClientRect().top <= 400){
+		if(!form1Activated && form1.getBoundingClientRect().top < screenHeight/3.6){
 			form1Activated = true;
 			form1.style.opacity = '1';
 			cRight.style.opacity = '1';
 			form1.style.transform = 'translatey(20%) translatex(25%)';
 		}
-		if(form1Activated && form1.getBoundingClientRect().top > 200){
+		if(form1Activated && form1.getBoundingClientRect().top > screenHeight/3.6){
 			form1Activated = false;
 			// cLeft.style.opacity = '0';
 			form1.style.transform = 'translatey(0) translatex(-50%)';
 			form1.style.opacity = '0';
 		}
-		if(!form2Activated && form2.getBoundingClientRect().top < 400){
+		if(!form2Activated && form2.getBoundingClientRect().top < screenHeight/3.6){
 			form2Activated = true;
 			form2.style.opacity = '1';
 			form2.style.transform = 'translatey(25%) translatex(0%) ';
 			cLeftS.style.opacity = '1';
 		}
-		if(form2Activated && form2.getBoundingClientRect().top > 200){
+		if(form2Activated && form2.getBoundingClientRect().top > screenHeight/4){
 			form2Activated = false;
 			form2.style.opacity = '0';
 			form2.style.transform = 'translatey(5%) translatex(15%)';
 		}
-		if(!form3Activated && form3.getBoundingClientRect().top < 550){
+		if(!form3Activated && form3.getBoundingClientRect().top < screenHeight/3.2){
 			form3Activated = true;
 			form3.style.opacity = '1';
 			form3.style.transform = 'translatex(15%) translatey(5%)';
 			cCenter.style.opacity = '1';
 		}
-		if(form3Activated && form3.getBoundingClientRect().top > 200){
+		if(form3Activated && form3.getBoundingClientRect().top > screenHeight/3){
 			form3Activated = false;
 			form3.style.opacity = '0';
 			form3.style.transform = 'translatex(-70%) translatey(5%) ';
 		}
-		if(!form4Activated && form4.getBoundingClientRect().top < 285){
+		if(!form4Activated && form4.getBoundingClientRect().bottom < screenHeight){
 			form4Activated = true;
 			form4.style.opacity = '1';
-			form4.style.transform = 'translatey(15%)';
+			form4.style.transform = 'translatey(5%)';
 			cCenter.style.opacity = '1';
 		}
-		if(form4Activated && form4.getBoundingClientRect().top > 300){
+		if(form4Activated && form4.getBoundingClientRect().bottom > screenHeight){
 			form4Activated = false;
 			form4.style.opacity = '0';
-			form4.style.transform = 'translatey(35%)';
+			form4.style.transform = 'translatey(15%)';
 			wheelCont.css({'display': 'none', 'opacity': '0'});
 			$('.push').css({'opacity': '0', 'display': 'none'});
 			if(wheelIsActive){
