@@ -83,7 +83,8 @@ $('.push-button').on("click", function(e){
 		$('.result').css({'display': 'block'})
 		setTimeout(function(e){
 			 var headerHeight = $('.header_up').height();
-	        $('.result').css({'height': screenHeight - (screenHeight*0.1)});
+			 console.log(headerHeight)
+	        $('.result').css({'height': screenHeight - (headerHeight*1.5)});
 	        var top = $('#resultId').offset().top;
 	        console.log(top);
 	        $('body,html').animate({scrollTop: top}, 900);
@@ -161,6 +162,8 @@ $('.result-button').on('click', function(e){
 			form3.style.opacity = '0';
 			form3.style.transform = 'translatex(-70%) translatey(5%) ';
 		}
+		console.log(form4.getBoundingClientRect().bottom)
+		console.log(screenHeight)
 		if(!form4Activated && form4.getBoundingClientRect().bottom < screenHeight){
 			form4Activated = true;
 			form4.style.opacity = '1';
