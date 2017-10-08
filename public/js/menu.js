@@ -46,8 +46,8 @@ slides.forEach(function(slide){
 	});
 	slideName.addEventListener('click', function(e){
 		e.preventDefault();
-		removeMedia();
-		hideSlidesAndAddArticle();
+		// removeMedia();
+		// hideSlidesAndAddArticle();
 		console.log(menu);
 	})
 });
@@ -65,12 +65,12 @@ function hideSlidesAndAddArticle(){
 	// activeSmallText.classList.remove('visible');
 	// activeSmallText.classList.add('hidden');
 	// activeSmallText.classList.remove('bounce');
-	menu.style.width = '8%';
-	menu.style.transition= 'all 0.8s ease-in-out';
-	article.style.visibility = 'visible';
-	article.style.animation = 'bottomToTop 1.5s linear';
-	background.classList.add('side-menu__background');
-	quoteText.classList.add('hidden');
+	// menu.style.width = '8%';
+	// menu.style.transition= 'all 0.8s ease-in-out';
+	// article.style.visibility = 'visible';
+	// article.style.animation = 'bottomToTop 1.5s linear';
+	// background.classList.add('side-menu__background');
+	// quoteText.classList.add('hidden');
 	// // activeImage.style.width = '125%';
 	// activeText.style.top = '10%';
 	// activeSide.classList.add('active');

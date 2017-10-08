@@ -14,9 +14,7 @@ body{
 .content{
     height: 100%;
     position: relative;
-
 }
-
 .background{
 	position: absolute;
 	width: 100%;
@@ -24,7 +22,6 @@ body{
 	background-color: #2d2c2c;
 	overflow: hidden;
 }
-
 .emptyspaceTextBottom{
 	width: 200px;
 	font-family: monospace;
@@ -108,18 +105,12 @@ body{
 	text-decoration: none;
 	color: #fff;
 }
-.slide-name:hover{
-	color: #aaa;
-}
-.slide-name:active, .slide-name:focus{
-}
 .text{
 	font-family: Corbert-Regular;
     font-size: 60px;
     z-index: 99;
     position: absolute;
     transition: none;
-
 }
 .text__sm{
 	position: absolute;
