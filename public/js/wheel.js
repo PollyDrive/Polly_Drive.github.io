@@ -145,14 +145,11 @@ $('#button_back').on('click', function(e){
 		}
 		if(form1Activated && form1.getBoundingClientRect().top > windowHeight/3){
 			form1Activated = false;
-			cRight.style.opacity = '0';
 			form1.style.transform = 'translatey(0) translatex(-50%)';
 			form1.style.opacity = '0';
+			cRight.style.opacity = '0';
 		}
-		// var formTwoX = '-25' + '%'
-		// if ( windowWidth < 1350) {
-		// 	formTwoX = '-10' + '%'
-		// }
+
 		if(!form2Activated && form2.getBoundingClientRect().top < windowHeight/3){
 			form2Activated = true;
 			form2.style.opacity = '1';
