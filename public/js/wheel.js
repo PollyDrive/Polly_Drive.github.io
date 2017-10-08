@@ -137,15 +137,15 @@ $('#button_back').on('click', function(e){
 			header.classList.add('header');
 			$('.scroll-arrow').css({'display': 'flex'})
 		}
-		if(!form1Activated && form1.getBoundingClientRect().top < screenHeight/3.6){
+		if(!form1Activated && form1.getBoundingClientRect().top < windowHeight/3){
 			form1Activated = true;
 			form1.style.opacity = '1';
 			cRight.style.opacity = '1';
 			form1.style.transform = 'translatey(20%) translatex(25%)';
 		}
-		if(form1Activated && form1.getBoundingClientRect().top > screenHeight/3.6){
+		if(form1Activated && form1.getBoundingClientRect().top > windowHeight/3){
 			form1Activated = false;
-			// cLeft.style.opacity = '0';
+			cRight.style.opacity = '0';
 			form1.style.transform = 'translatey(0) translatex(-50%)';
 			form1.style.opacity = '0';
 		}
@@ -153,39 +153,40 @@ $('#button_back').on('click', function(e){
 		// if ( windowWidth < 1350) {
 		// 	formTwoX = '-10' + '%'
 		// }
-		if(!form2Activated && form2.getBoundingClientRect().top < screenHeight/3.6){
+		if(!form2Activated && form2.getBoundingClientRect().top < windowHeight/3){
 			form2Activated = true;
 			form2.style.opacity = '1';
 			form2.style.transform = 'translatey(25%) translatex(-8%)';
 			// debugger
 			cLeftS.style.opacity = '1';
 		}
-		if(form2Activated && form2.getBoundingClientRect().top > screenHeight/4){
+		if(form2Activated && form2.getBoundingClientRect().top > windowHeight/3){
 			form2Activated = false;
 			form2.style.opacity = '0';
 			form2.style.transform = 'translatey(5%) translatex(20%)';
+			cLeftS.style.opacity = '0';
 		}
-		if(!form3Activated && form3.getBoundingClientRect().top < screenHeight/3.2){
+		if(!form3Activated && form3.getBoundingClientRect().top < windowHeight/3){
 			form3Activated = true;
 			form3.style.opacity = '1';
 			form3.style.transform = 'translatex(30%) translatey(5%)';
 			cCenter.style.opacity = '1';
 		}
-		if(form3Activated && form3.getBoundingClientRect().top > screenHeight/3){
+		if(form3Activated && form3.getBoundingClientRect().top > windowHeight/3){
 			form3Activated = false;
 			form3.style.opacity = '0';
 			form3.style.transform = 'translatex(-50%) translatey(5%) ';
 		}
-		if(!form4Activated && form4.getBoundingClientRect().bottom < screenHeight){
+		if(!form4Activated && form4.getBoundingClientRect().top < windowHeight/2){
 			form4Activated = true;
 			form4.style.opacity = '1';
 			form4.style.transform = 'translatey(5%)';
 		}
-		if(form4Activated && form4.getBoundingClientRect().bottom > screenHeight){
+		if(form4Activated && form4.getBoundingClientRect().top > windowHeight/2){
 			form4Activated = false;
 			form4.style.opacity = '0';
 			form4.style.transform = 'translatey(11%)';
-			wheelCont.css({'display': 'none', 'opacity': '0'});
+			wheelCont.css({'display': 'none', 'opacity': '0', 'height': '0'});
 			$('.push').css({'opacity': '0', 'display': 'none'});
 			if(wheelIsActive){
 				wheel.css({animation: 'none'});
