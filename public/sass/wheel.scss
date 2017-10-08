@@ -111,24 +111,23 @@ body{
 	flex-flow: row wrap;
 	z-index: 10;
 	background-color: #FFF;
-	height: 300px;
 }
 .content-left{
 	justify-content: flex-start;
 	// padding: 200px 100px 0;
 	border-top: 11px dotted #333;
-	// height: 200px;
+	height: 200px;
 }
 .content-left2{
 	justify-content: flex-start;
 	border-top: 11px dotted #333;
-	// height: 400px;
+	height: 300px;
 	padding-left: 100px;
 }
 .content-right{
 	justify-content: flex-end;
 	border-top: 5px dotted #333;
-	// height: 300px;
+	height: 400px;
 	padding-right: 100px;
 }
 .content-center{
@@ -154,14 +153,13 @@ body{
 }
 .form1{
 	transform: translatey(0) translatex(-50%);
-	animation: none;
 }
 .text1{
 	top: 6em;
 	left: 8em;
 }
 .form2{
-	transform: translatey(30%) translatex(15%);
+	transform: translatey(30%) translatex(20%);
 }
 .text2{
     top: 8em;
@@ -185,10 +183,10 @@ body{
 	animation: none;
 }
 .text5{
-	top: 7em;
+	top: 8em;
     right: 2em;
     color: #fff;
-    width: 70%;
+    width: 73%;
     font-size: 24px;
 }
 .circle6{
@@ -366,7 +364,7 @@ $person: 1;
 	display: none;
 	opacity: 0;
     position: fixed;
-    bottom: 55px;
+    bottom: 5%;
     left: 50%;
     transform: translatex(-50%);
 }
@@ -431,9 +429,17 @@ $person: 1;
 		height: 100%;
 	}
 }
+.result-buttons{
+	display: flex;
+    flex-flow: column wrap;
+    font-size: 25px;
+    align-items: center;
+    justify-content: space-between;
+    height: 160px;
+    margin-top: 50px;
+}
 .result-button{
 	font-size: 25px;
-	margin-top: 60px;
 	border: 3px solid #c83e19;
 	border-radius:30px;
 	background-color: #fff;
