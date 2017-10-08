@@ -150,14 +150,14 @@ $('#button_back').on('click', function(e){
 			cRight.style.opacity = '0';
 		}
 
-		if(!form2Activated && form2.getBoundingClientRect().top < windowHeight/3){
+		if(!form2Activated && form2.getBoundingClientRect().top < windowHeight/3.5){
 			form2Activated = true;
 			form2.style.opacity = '1';
 			form2.style.transform = 'translatey(25%) translatex(-8%)';
 			// debugger
 			cLeftS.style.opacity = '1';
 		}
-		if(form2Activated && form2.getBoundingClientRect().top > windowHeight/3){
+		if(form2Activated && form2.getBoundingClientRect().top > windowHeight/3.5){
 			form2Activated = false;
 			form2.style.opacity = '0';
 			form2.style.transform = 'translatey(5%) translatex(20%)';
